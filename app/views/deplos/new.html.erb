@@ -1,0 +1,58 @@
+<div class="">
+  <header class="">
+
+  </header>
+  <div class="">
+    <h2 class="">地域の情報を発信しよう!</h2>
+    <%# form_with model:hoge, id: 'hoge', url: hogepass, local: true do |f| %>
+
+    <%# render 'shared/error_messages', model: f.object %>
+
+      <div class="">
+        <div class="weight-bold-text">
+          タイトルを入力しよう!
+          <span class="indispensable">必須</span>
+        </div>
+        <%#タイトル入力フォーム%>
+        <%# f.text_area :hoge, class:"", id:"deplo-name", placeholder:"タイトル（必須 40文字まで)", maxlength:"40" %>
+      </div>
+      <div class="">
+        <div class="weight-bold-text">
+          紹介したい内容を入力しよう!
+          <span class="indispensable">必須</span>
+        </div>
+        <%#紹介内容入力フォーム%>
+        <%# f.text_area :hoge, class:"", id:"deplo-info"%>
+      </div>
+      <div class="">
+        <div class="weight-bold-text">紹介内容の詳細</div>
+          <div class="form">
+            <div class="weight-bold-text">
+              カテゴリーを選択しよう!
+              <span class="indispensable">必須</span>
+            </div>
+            <%# f.collection_select(:category_id, Category.all, :id, :name, {}, {class:"select-box", id:"deplo-category"}) %>
+          </div>
+          <div class="weight-bold-text">
+            都道府県を選択しよう!
+            <span class="indispensable">必須</span>
+          </div>
+          <%# f.collection_select(:prefecture_id, Prefecture.all, :id, :name, {}, {class:"select-box", id:"deplo-prefecture"}) %>
+
+          <div class="">
+            <div class="weight-bold-text">
+              市区町村を入力しよう!
+              <span class="indispensable">必須</span>
+            </div>
+            <%#市区町村入力フォーム%>
+            <%# f.text_area :hoge, class:"", id:"deplo-info"%>
+          </div>
+        </div>
+      </div>
+      <div class="sell-btn-contents">
+        <%# f.submit "投稿する" ,class:"sell-btn" %>
+        <%=link_to 'トップページへ戻る', root_path, class:"back-btn" %>
+      </div>
+  </div>
+  <%# end %>
+</div>
