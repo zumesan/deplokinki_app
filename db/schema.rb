@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_09_23_190129) do
+ActiveRecord::Schema.define(version: 2022_09_23_191820) do
 
   create_table "deplos", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "deplo_title", null: false
@@ -20,6 +20,7 @@ ActiveRecord::Schema.define(version: 2022_09_23_190129) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.integer "category_id"
+    t.integer "prefecture_id"
     t.index ["user_id"], name: "index_deplos_on_user_id"
   end
 
