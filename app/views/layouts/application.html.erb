@@ -10,6 +10,22 @@
   </head>
 
   <body>
+    <header class="">
+      <div class="">
+    <div class="top_header">
+      <div>
+        <h2 class="">
+          DEPLO
+        </h2>
+        <p class="">
+          〜地域情報発信アプリ〜
+        </p>
+      </div>
+      <div class="nav_right">
+        <%#link_to 'ログアウト', hoge, class:"back-btn" %>
+        <%= link_to '新規投稿', new_deplo_path, class:"back-btn" %>
+    </div>
+  </div>
     <%= yield %>
   </body>
 </html>
