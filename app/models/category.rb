@@ -7,4 +7,7 @@ class Category < ActiveHash::Base
     { id: 5, name: 'エンタメ' },
     { id: 6, name: 'その他' },
   ]
+
+  include ActiveHash::Associations
+  has_many :deplos
   end
