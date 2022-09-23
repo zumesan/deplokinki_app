@@ -3,6 +3,7 @@ class Deplo < ApplicationRecord
 
   belongs_to :users
   belongs_to :category
+  belongs_to :prefecture
 
 
 
