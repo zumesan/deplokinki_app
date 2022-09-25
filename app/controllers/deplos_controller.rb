@@ -12,6 +12,9 @@ class DeplosController < ApplicationController
     @deplo = Deplo.new(deplo_params)
     if @deplo.save
       redirect_to root_path
+    else
+      render :new
+      return
     end
   end
 
