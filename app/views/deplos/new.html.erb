@@ -4,13 +4,13 @@
   </header>
   <div class="">
     <h2 class="">地域の情報を発信しよう!</h2>
-    <%= form_with model:@deplo, id: 'hoge', url: new_deplo_path, local: true do |f| %>
+    <%= form_with model:@deplo, id: 'hoge', url: deplos_path, metod: :post, local: true do |f| %>
 
     <%# render 'shared/error_messages', model: f.object %>
 
       <div class="">
         <div class="weight-bold-text">
-          タイトルを入力しよう!
+          タイトル
           <span class="indispensable">必須</span>
         </div>
         <%#タイトル入力フォーム%>
@@ -18,7 +18,7 @@
       </div>
       <div class="">
         <div class="weight-bold-text">
-          紹介したい内容を入力しよう!
+          紹介内容
           <span class="indispensable">必須</span>
         </div>
         <%#紹介内容入力フォーム%>
@@ -28,20 +28,20 @@
         <div class="weight-bold-text">紹介内容の詳細</div>
           <div class="form">
             <div class="weight-bold-text">
-              カテゴリーを選択しよう!
+              カテゴリー
               <span class="indispensable">必須</span>
             </div>
             <%= f.collection_select(:category_id, Category.all, :id, :name, {include_blank: "---"}, {class:"select-box", id:"deplo-category"}) %>
           </div>
           <div class="weight-bold-text">
-            都道府県を選択しよう!
+            都道府県
             <span class="indispensable">必須</span>
           </div>
           <%= f.collection_select(:prefecture_id, Prefecture.all, :id, :name, {include_blank: "---"}, {class:"select-box", id:"deplo-prefecture"}) %>
 
           <div class="">
             <div class="weight-bold-text">
-              市区町村を入力しよう!
+              市区町村
               <span class="indispensable">必須</span>
             </div>
             <%#市区町村入力フォーム%>

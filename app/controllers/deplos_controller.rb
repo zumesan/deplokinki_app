@@ -3,5 +3,6 @@ class DeplosController < ApplicationController
   end
 
   def new
+    @deplo = Deplo.new
   end
 end
