@@ -1,0 +1,2 @@
+module DeplolistsHelper
+end
