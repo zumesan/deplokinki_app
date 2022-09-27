@@ -3,8 +3,9 @@ class DeplolistsController < ApplicationController
   before_action :authenticate_user!, except: [:index]
 
   def index
+    @mie = Deplo.where(prefecture_id: 1)
   end
-  
+
   private
   def set_deplo
     @deplo = Deplo.find(params[:id])

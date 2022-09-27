@@ -2,7 +2,7 @@
   <div class="">
     <div class="kinki_map">
       <img src="/assets/map-kinki.png" alt="近畿地図" id="kinki">
-      <span class="area_btn mie" id="mie">三重県</span>
+      <%= link_to('三重県', deplo_deplolists_path(@mie), class: "area_btn mie" ) %>
       <span class="area_btn shiga" id="shiga">滋賀県</span>
       <span class="area_btn kyoto" id="kyoto">京都府</span>
       <span class="area_btn osaka" id="osaka">大阪府</span>
