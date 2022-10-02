@@ -1,0 +1,14 @@
+<div>
+  <h3><%= Prefecture.find(1)[:name] %>のDEPLO一覧</h3>
+    <% @mies.each do |mie| %>
+      <ul class='lists'>
+        <li class='list'>
+          <div class=''>
+            <h3 class='deplo__title'>
+              <%= mie.deplo_title %>
+            </h3>
+          </div>
+        </li>
+      </ul>
+    <% end %>
+</div>

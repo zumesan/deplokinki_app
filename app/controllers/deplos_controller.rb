@@ -3,8 +3,9 @@ class DeplosController < ApplicationController
   before_action :authenticate_user!, except: [:index]
 
   def index
-    @deplos = Deplo.all.order(created_at: :desc)
-    @mie = Deplo.where(category_id: 1)
+    @deplos = Deplo.all
+    @mies = Deplo.where(category_id: 1)
+    @shigas =Deplo.where(prefecture_id: 2)
   end
 
   def new
