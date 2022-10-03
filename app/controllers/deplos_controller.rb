@@ -8,6 +8,7 @@ class DeplosController < ApplicationController
     @shigas = Deplo.where(prefecture_id: 2)
     @kyotos = Deplo.where(prefecture_id: 3)
     @osakas = Deplo.where(prefecture_id: 4)
+    @hyogos = Deplo.where(prefecture_id: 5)
   end
 
   def new
