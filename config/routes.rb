@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'deplonaras/index'
+  get 'deplowakayamas/index'
   get 'deplohyogos/index'
   get 'deploosakas/index'
   get 'deplokyotos/index'

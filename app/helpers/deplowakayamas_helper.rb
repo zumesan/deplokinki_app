@@ -1,0 +1,2 @@
+module DeplowakayamasHelper
+end
