@@ -1,0 +1,2 @@
+module DeploosakasHelper
+end

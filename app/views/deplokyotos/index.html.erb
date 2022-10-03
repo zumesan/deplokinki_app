@@ -1,0 +1,14 @@
+<div>
+  <h3><%= Prefecture.find(3)[:name] %>のDEPLO一覧</h3>
+    <% @kyotos.each do |kyoto| %>
+      <ul class='lists'>
+        <li class='list'>
+          <div class=''>
+            <h3 class='deplo__title'>
+              <%= kyoto.deplo_title %>
+            </h3>
+          </div>
+        </li>
+      </ul>
+    <% end %>
+</div>

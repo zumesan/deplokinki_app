@@ -1,0 +1,14 @@
+<div>
+  <h3><%= Prefecture.find(2)[:name] %>のDEPLO一覧</h3>
+    <% @shigas.each do |shiga| %>
+      <ul class='lists'>
+        <li class='list'>
+          <div class=''>
+            <h3 class='deplo__title'>
+              <%= shiga.deplo_title %>
+            </h3>
+          </div>
+        </li>
+      </ul>
+    <% end %>
+</div>

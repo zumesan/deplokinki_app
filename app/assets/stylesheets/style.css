@@ -81,3 +81,30 @@
   box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.2), 0 1px 8px 0 rgba(0, 0, 0, 0.12);
   cursor: pointer;
 }
+
+/* 一覧表示機能 */
+
+.deplo__title{
+  font-size: 2.5vh;
+}
+
+.lists {
+  width: 100vw;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: left;
+}
+
+.list {
+  width: 37vh;
+  padding: 1vw;
+  background-color: white;
+}
+
+/* 詳細表示機能 */
+
+.deplo__info{
+  background-color: white;
+  color: black;
+  padding: 1vw;
+}
