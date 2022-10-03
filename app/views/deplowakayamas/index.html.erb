@@ -1,2 +1,14 @@
-<h1>Deplowakayamas#index</h1>
-<p>Find me in app/views/deplowakayamas/index.html.erb</p>
+<div>
+  <h3><%= Prefecture.find(7)[:name] %>のDEPLO一覧</h3>
+    <% @wakayamas.each do |wakayama| %>
+      <ul class='lists'>
+        <li class='list'>
+          <div class=''>
+            <h3 class='deplo__title'>
+              <%= wakayama.deplo_title %>
+            </h3>
+          </div>
+        </li>
+      </ul>
+    <% end %>
+</div>
