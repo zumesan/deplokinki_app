@@ -9,9 +9,9 @@ Rails.application.routes.draw do
   resources :deplos, only: [:index, :new, :create] do
     resources :deplomies, only: :index
     resources :deploshigas, only: :index
-    resources :deploshigas, only: :index
     resources :deplokyotos, only: :index
     resources :deploosakas, only: :index
     resources :deplohyogos, only: :index 
+    resources :deplonaras, only: :index 
   end
 end
