@@ -5,7 +5,9 @@ class DeplosController < ApplicationController
   def index
     @deplos = Deplo.all
     @mies = Deplo.where(category_id: 1)
-    @shigas =Deplo.where(prefecture_id: 2)
+    @shigas = Deplo.where(prefecture_id: 2)
+    @kyotos = Deplo.where(prefecture_id: 3)
+    @osakas = Deplo.where(prefecture_id: 4)
   end
 
   def new
