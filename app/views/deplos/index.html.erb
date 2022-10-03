@@ -1,6 +1,5 @@
 <div class="">
   <div class="">
-    <% @deplos.each do |deplo|%>
     <div class="kinki_map">
       <img src="/assets/map-kinki.png" alt="近畿地図" id="kinki">
       <%= link_to('三重県', deplo_deplomies_path(@mies), class: "area_btn mie") %>
@@ -11,6 +10,5 @@
       <%= link_to('奈良県', deplo_deplonaras_path(@naras), class: "area_btn nara") %>
       <%= link_to('和歌山県', deplo_deplowakayamas_path(@wakayamas), class: "area_btn wakayama") %>
     </div>
-  <% end %>
   </div>
 </div>
