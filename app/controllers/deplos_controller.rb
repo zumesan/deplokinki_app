@@ -17,6 +17,9 @@ class DeplosController < ApplicationController
     @deplo = Deplo.new
   end
 
+  def show
+  end
+
   def create
     @deplo = Deplo.new(deplo_params)
     if @deplo.save
