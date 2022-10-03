@@ -1,0 +1,2 @@
+module DeplohyogosHelper
+end

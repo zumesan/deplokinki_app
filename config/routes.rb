@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'deplohyogos/index'
   get 'deploosakas/index'
   get 'deplokyotos/index'
   devise_for :users
