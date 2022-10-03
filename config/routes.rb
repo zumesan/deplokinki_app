@@ -12,6 +12,7 @@ Rails.application.routes.draw do
     resources :deplokyotos, only: :index
     resources :deploosakas, only: :index
     resources :deplohyogos, only: :index 
-    resources :deplonaras, only: :index 
+    resources :deplonaras, only: :index
+    resources :deplowakayamas, only: :index
   end
 end
