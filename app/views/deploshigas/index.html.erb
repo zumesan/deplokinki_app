@@ -2,6 +2,7 @@
   <h3><%= Prefecture.find(2)[:name] %>のDEPLO一覧</h3>
     <% @shigas.each do |shiga| %>
       <ul class='lists'>
+      <%= link_to deplo_path(shiga.id), method: :get do %>
         <li class='list'>
           <div class=''>
             <h3 class='deplo__title'>
@@ -9,6 +10,7 @@
             </h3>
           </div>
         </li>
+        <% end %>
       </ul>
     <% end %>
 </div>

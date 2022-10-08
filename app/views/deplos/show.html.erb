@@ -1,0 +1,19 @@
+<h1>詳細</h1>
+
+<div>
+  <div>
+    <h2>
+      <%= @deplo.deplo_title %>
+    </h2>
+    <h3>
+      <%= @deplo.deplo_info%>
+    </h3>
+    <h4>
+      カテゴリー：<%= Category.find(@deplo.category_id)[:name] %>
+    </h4>
+    <h4>
+      住&emsp;&emsp;&emsp;所：<%= Prefecture.find(@deplo.prefecture_id)[:name] %><%= @deplo.municipality%>
+    </h4>
+  </div>
+  <%= link_to "トップページに戻る", root_path %>
+</div>

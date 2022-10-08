@@ -1,10 +1,7 @@
 <div class="">
-  <div class="">
-    <h2 class="">地域の情報を発信しよう!</h2>
+  <h2 class="">地域の情報を発信しよう!</h2>
     <%= form_with model:@deplo, url: deplos_path, local: true do |f| %>
-
-    <%# render 'shared/error_messages', model: f.object %>
-
+      <%= render 'shared/error_messages', model: f.object %>
       <div class="">
         <div class="weight-bold-text">
           タイトル
@@ -29,13 +26,12 @@
               <span class="indispensable">必須</span>
             </div>
             <%= f.collection_select(:category_id, Category.all, :id, :name, {include_blank: "---"}, {class:"select-box", id:"deplo-category"}) %>
+            <div class="weight-bold-text">
+              都道府県
+              <span class="indispensable">必須</span>
+            </div>
+            <%= f.collection_select(:prefecture_id, Prefecture.all, :id, :name, {include_blank: "---"}, {class:"select-box", id:"deplo-prefecture"}) %>
           </div>
-          <div class="weight-bold-text">
-            都道府県
-            <span class="indispensable">必須</span>
-          </div>
-          <%= f.collection_select(:prefecture_id, Prefecture.all, :id, :name, {include_blank: "---"}, {class:"select-box", id:"deplo-prefecture"}) %>
-
           <div class="">
             <div class="weight-bold-text">
               市区町村
@@ -50,6 +46,5 @@
         <%= f.submit "投稿する" ,class:"sell-btn" %><br /><br />
         <%=link_to 'トップページへ戻る', root_path, class:"back-btn" %>
       </div>
-  </div>
   <% end %>
 </div>
