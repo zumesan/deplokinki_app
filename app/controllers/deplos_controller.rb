@@ -16,6 +16,9 @@ class DeplosController < ApplicationController
   def prefecture
     @deplo = Deplo.find_by(prefecture_id: params[:id])
     @deplos = Deplo.where(prefecture_id: params[:id]).order('created_at DESC')
+    if @deplo.nil?
+      redirect_to root_path
+    end
   end
 
   def new
