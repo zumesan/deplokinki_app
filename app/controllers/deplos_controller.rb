@@ -4,13 +4,18 @@ class DeplosController < ApplicationController
 
   def index
     @deplos = Deplo.all
-    @mies = Deplo.where(category_id: 1)
-    @shigas = Deplo.where(prefecture_id: 2)
-    @kyotos = Deplo.where(prefecture_id: 3)
-    @osakas = Deplo.where(prefecture_id: 4)
-    @hyogos = Deplo.where(prefecture_id: 5)
-    @naras = Deplo.where(prefecture_id: 6)
-    @wakayamas = Deplo.where(prefecture_id: 7)
+    #@mies = Deplo.where(category_id: 1)
+    #@shigas = Deplo.where(prefecture_id: 2)
+    #@kyotos = Deplo.where(prefecture_id: 3)
+    #@osakas = Deplo.where(prefecture_id: 4)
+    #@hyogos = Deplo.where(prefecture_id: 5)
+    #@naras = Deplo.where(prefecture_id: 6)
+    #@wakayamas = Deplo.where(prefecture_id: 7)
+  end
+
+  def prefecture
+    @deplo = Deplo.find_by(prefecture_id: params[:id])
+    @deplos = Deplo.where(prefecture_id: params[:id]).order('created_at DESC')
   end
 
   def new
