@@ -1,5 +1,26 @@
-
-<%= @deplo.prefecture.name %>
-<% @deplos.each do |deplo|%>
-  <%= deplo.deplo_title %>
-<% end %>
+<div class='deplo__contents'>
+  <%if @deplo.nil?%>
+    <h3>
+      この都道府県のDEPLOはまだ投稿されていません。
+    </h3>
+    <h4>
+      <%=link_to 'ぜひ投稿してね！', new_deplo_path %>
+    </h4>
+  <%else%>
+  <h3>
+    <%= @deplo.prefecture.name %>のDEPLO一覧
+  </h3>
+  <% @deplos.each do |deplo|%>
+    <ul class='deplo__lists'>
+      <%= link_to deplo_path(deplo.id), method: :get do %>
+      <li class='list'>
+        <h3 class='title'>
+          <%= deplo.deplo_title %>
+        </h3>
+      </li>
+      <% end %>
+    </ul>
+  <% end %>
+  <%end%>
+  <%= link_to 'トップページに戻る', root_path %>
+</div>

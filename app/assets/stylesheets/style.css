@@ -83,19 +83,32 @@
 }
 
 /* 一覧表示機能 */
-
-.deplo__title{
-  font-size: 2.5vh;
+.deplo__contents {
+  background-color: #FFF;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10vh 0;
 }
 
-.lists {
+.deplo__contents>.content {
+  justify-content: space-between;
+}
+
+.deplo__contents>.title {
+  font-size: 5vh;
+  line-height: 1.4;
+  font-weight: bold;
+}
+
+.deplo__lists {
   width: 100vw;
   display: flex;
   flex-wrap: wrap;
-  justify-content: left;
+  justify-content: center;
 }
 
-.list {
+.deplo__lists>.list {
   width: 37vh;
   padding: 1vw;
   background-color: white;

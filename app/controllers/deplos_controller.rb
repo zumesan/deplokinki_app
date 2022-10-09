@@ -1,6 +1,6 @@
 class DeplosController < ApplicationController
   before_action :set_deplo, except: [:index, :new, :create]
-  before_action :authenticate_user!, except: [:index]
+  before_action :authenticate_user!, except: [:index, :prefecture, :show]
 
   def index
     @deplos = Deplo.all
@@ -16,9 +16,6 @@ class DeplosController < ApplicationController
   def prefecture
     @deplo = Deplo.find_by(prefecture_id: params[:id])
     @deplos = Deplo.where(prefecture_id: params[:id]).order('created_at DESC')
-    if @deplo.nil?
-      redirect_to root_path
-    end
   end
 
   def new
