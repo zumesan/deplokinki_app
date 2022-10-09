@@ -1,6 +1,7 @@
 class DeplosController < ApplicationController
   before_action :set_deplo, except: [:index, :new, :create]
   before_action :authenticate_user!, except: [:index, :prefecture, :show]
+  before_action :contributor_confirmation, only: [:edit]
 
   def index
     @deplos = Deplo.all
@@ -28,6 +29,9 @@ class DeplosController < ApplicationController
     end
   end
 
+  def edit
+  end
+
 private
   def set_deplo
     @deplo = Deplo.find(params[:id])
@@ -35,5 +39,9 @@ private
 
   def deplo_params
     params.require(:deplo).permit(:deplo_title, :deplo_info, :municipality, :category_id, :prefecture_id).merge(user_id: current_user.id)
+  end
+
+  def contributor_confirmation
+    redirect_to root_path unless current_user == @deplo.user 
   end
 end
