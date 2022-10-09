@@ -12,6 +12,8 @@
     <h4>
       住&emsp;&emsp;&emsp;所：<%= Prefecture.find(@deplo.prefecture_id)[:name] %><%= @deplo.municipality%>
     </h4>
+    <h4>
+      投&emsp;稿&emsp;者:<%= @deplo.user[:nickname] %>
   </div>
 
   <% if user_signed_in? %>
