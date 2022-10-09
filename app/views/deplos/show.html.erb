@@ -1,5 +1,3 @@
-<h1>詳細</h1>
-
 <div>
   <div>
     <h2>
@@ -15,5 +13,6 @@
       住&emsp;&emsp;&emsp;所：<%= Prefecture.find(@deplo.prefecture_id)[:name] %><%= @deplo.municipality%>
     </h4>
   </div>
+  <%= link_to "編集する", edit_deplo_path, class:"sell-btn" %><br/><br/>
   <%= link_to "トップページに戻る", root_path %>
 </div>
