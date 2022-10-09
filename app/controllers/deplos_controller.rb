@@ -1,7 +1,7 @@
 class DeplosController < ApplicationController
   before_action :set_deplo, except: [:index, :new, :create]
   before_action :authenticate_user!, except: [:index, :prefecture, :show]
-  before_action :contributor_confirmation, only: [:edit, :update]
+  before_action :contributor_confirmation, only: [:edit, :update, :destroy]
 
   def index
     @deplos = Deplo.all
