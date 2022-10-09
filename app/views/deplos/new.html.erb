@@ -1,7 +1,13 @@
 <div class="">
   <h2 class="">地域の情報を発信しよう!</h2>
   <%= form_with model:@deplo, url: deplos_path, local: true do |f| %>
+
     <%= render 'shared/error_messages', model: f.object %>
+
+    <div class="weight-bold-text">
+      画像
+    </div>
+    <%= f.file_field :image, name: 'deplo[image]'%>
     <div class="">
       <div class="weight-bold-text">
         タイトル
