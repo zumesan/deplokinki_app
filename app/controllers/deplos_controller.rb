@@ -41,6 +41,10 @@ class DeplosController < ApplicationController
   end
 
   def destroy
+    deplo = Deplo.find(params[:id])
+    if deplo.destroy
+      redirect_to root_path
+    end
   end
 
 private
