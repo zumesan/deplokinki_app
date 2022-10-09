@@ -4,6 +4,8 @@ class Deplo < ApplicationRecord
   belongs_to :user
   belongs_to :category
   belongs_to :prefecture
+  has_many :deplo_records
+  has_many :users, through: :deplo_records
   has_one_attached :image
 
   validates :deplo_title, :deplo_info, :municipality, presence: true
