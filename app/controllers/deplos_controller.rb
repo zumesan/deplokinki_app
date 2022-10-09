@@ -1,6 +1,6 @@
 class DeplosController < ApplicationController
   before_action :set_deplo, except: [:index, :new, :create]
-  before_action :authenticate_user!, except: [:index]
+  before_action :authenticate_user!, except: [:index, :prefecture, :show]
 
   def index
     @deplos = Deplo.all
