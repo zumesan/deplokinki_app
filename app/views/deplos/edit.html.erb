@@ -1,52 +1,52 @@
 <div class="">
   <h2 class="">地域の情報を発信しよう!</h2>
-    <%= form_with model:@deplo, url: deplos_path, local: true do |f| %>
+  <%= form_with model:@deplo, url: deplo_path(@deplo), local: true do |f| %>
       
-      <%= render 'shared/error_messages', model: f.object %>
+    <%= render 'shared/error_messages', model: f.object %>
       
-      <div class="">
-        <div class="weight-bold-text">
-          タイトル
-          <span class="indispensable">必須</span>
-        </div>
-        <%#タイトル入力フォーム%>
-        <%= f.text_area :deplo_title, class:"", id:"deplo-title", placeholder:"タイトル（必須 40文字まで)", maxlength:"40" %>
+    <div class="">
+      <div class="weight-bold-text">
+        タイトル
+        <span class="indispensable">必須</span>
       </div>
-      <div class="">
-        <div class="weight-bold-text">
-          紹介内容
-          <span class="indispensable">必須</span>
-        </div>
-        <%#紹介内容入力フォーム%>
-        <%= f.text_area :deplo_info, class:"", id:"deplo-info"%>
+      <%#タイトル入力フォーム%>
+      <%= f.text_area :deplo_title, class:"", id:"deplo-title", placeholder:"タイトル（必須 40文字まで)", maxlength:"40" %>
+    </div>
+    <div class="">
+      <div class="weight-bold-text">
+        紹介内容
+        <span class="indispensable">必須</span>
       </div>
-      <div class="">
-        <div class="weight-bold-text">紹介内容の詳細</div>
-          <div class="form">
-            <div class="weight-bold-text">
-              カテゴリー
-              <span class="indispensable">必須</span>
-            </div>
-            <%= f.collection_select(:category_id, Category.all, :id, :name, {include_blank: "---"}, {class:"select-box", id:"deplo-category"}) %>
-            <div class="weight-bold-text">
-              都道府県
-              <span class="indispensable">必須</span>
-            </div>
-            <%= f.collection_select(:prefecture_id, Prefecture.all, :id, :name, {include_blank: "---"}, {class:"select-box", id:"deplo-prefecture"}) %>
+      <%#紹介内容入力フォーム%>
+      <%= f.text_area :deplo_info, class:"", id:"deplo-info"%>
+    </div>
+    <div class="">
+      <div class="weight-bold-text">紹介内容の詳細</div>
+        <div class="form">
+          <div class="weight-bold-text">
+            カテゴリー
+            <span class="indispensable">必須</span>
           </div>
-          <div class="">
-            <div class="weight-bold-text">
-              市区町村
-              <span class="indispensable">必須</span>
-            </div>
-            <%#市区町村入力フォーム%>
-            <%= f.text_area :municipality, class:"", id:"municipality"%>
+          <%= f.collection_select(:category_id, Category.all, :id, :name, {include_blank: "---"}, {class:"select-box", id:"deplo-category"}) %>
+          <div class="weight-bold-text">
+            都道府県
+            <span class="indispensable">必須</span>
           </div>
+          <%= f.collection_select(:prefecture_id, Prefecture.all, :id, :name, {include_blank: "---"}, {class:"select-box", id:"deplo-prefecture"}) %>
+        </div>
+        <div class="">
+          <div class="weight-bold-text">
+            市区町村
+            <span class="indispensable">必須</span>
+          </div>
+          <%#市区町村入力フォーム%>
+          <%= f.text_area :municipality, class:"", id:"municipality"%>
         </div>
       </div>
-      <div class="sell-btn-contents">
-        <%= f.submit "変更する" ,class:"sell-btn" %><br /><br />
-        <%=link_to 'トップページへ戻る', root_path, class:"back-btn" %>
-      </div>
+    </div>
+    <div class="sell-btn-contents">
+      <%= f.submit "変更する" ,class:"sell-btn" %><br /><br />
+      <%=link_to 'トップページへ戻る', root_path, class:"back-btn" %>
+    </div>
   <% end %>
 </div>
