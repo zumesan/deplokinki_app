@@ -1,7 +1,7 @@
 class DeplosController < ApplicationController
   before_action :set_deplo, except: [:index, :new, :create]
   before_action :authenticate_user!, except: [:index, :prefecture, :show]
-  before_action :contributor_confirmation, only: [:edit]
+  before_action :contributor_confirmation, only: [:edit, :update]
 
   def index
     @deplos = Deplo.all
@@ -30,6 +30,14 @@ class DeplosController < ApplicationController
   end
 
   def edit
+  end
+
+  def update
+    if @deplo.update(deplo_params)
+      redirect_to deplo_path(@deplo)
+    else
+      render :edit
+    end
   end
 
 private
