@@ -1,7 +1,9 @@
 <div class="">
   <h2 class="">地域の情報を発信しよう!</h2>
-  <%= form_with model:@deplo, url: deplos_path, local: true do |f| %>
+  <%= form_with model:@deplo, url: deplo_path(@deplo), local: true do |f| %>
+      
     <%= render 'shared/error_messages', model: f.object %>
+      
     <div class="">
       <div class="weight-bold-text">
         タイトル
@@ -43,8 +45,8 @@
       </div>
     </div>
     <div class="sell-btn-contents">
-      <%= f.submit "投稿する" ,class:"sell-btn" %><br /><br />
+      <%= f.submit "変更する" ,class:"sell-btn" %><br /><br />
       <%=link_to 'トップページへ戻る', root_path, class:"back-btn" %>
     </div>
-  <%end%>
+  <% end %>
 </div>

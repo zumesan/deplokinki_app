@@ -1,16 +1,10 @@
 class DeplosController < ApplicationController
-  before_action :set_deplo, except: [:index, :new, :create]
+  before_action :set_deplo, except: [:index, :prefecture, :new, :create]
   before_action :authenticate_user!, except: [:index, :prefecture, :show]
+  before_action :contributor_confirmation, only: [:edit, :update, :destroy]
 
   def index
     @deplos = Deplo.all
-    #@mies = Deplo.where(category_id: 1)
-    #@shigas = Deplo.where(prefecture_id: 2)
-    #@kyotos = Deplo.where(prefecture_id: 3)
-    #@osakas = Deplo.where(prefecture_id: 4)
-    #@hyogos = Deplo.where(prefecture_id: 5)
-    #@naras = Deplo.where(prefecture_id: 6)
-    #@wakayamas = Deplo.where(prefecture_id: 7)
   end
 
   def prefecture
@@ -35,6 +29,24 @@ class DeplosController < ApplicationController
     end
   end
 
+  def edit
+  end
+
+  def update
+    if @deplo.update(deplo_params)
+      redirect_to deplo_path(@deplo)
+    else
+      render :edit
+    end
+  end
+
+  def destroy
+    deplo = Deplo.find(params[:id])
+    if deplo.destroy
+      redirect_to root_path
+    end
+  end
+
 private
   def set_deplo
     @deplo = Deplo.find(params[:id])
@@ -42,5 +54,9 @@ private
 
   def deplo_params
     params.require(:deplo).permit(:deplo_title, :deplo_info, :municipality, :category_id, :prefecture_id).merge(user_id: current_user.id)
+  end
+
+  def contributor_confirmation
+    redirect_to root_path unless current_user == @deplo.user 
   end
 end

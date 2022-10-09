@@ -1,5 +1,3 @@
-<h1>詳細</h1>
-
 <div>
   <div>
     <h2>
@@ -14,6 +12,15 @@
     <h4>
       住&emsp;&emsp;&emsp;所：<%= Prefecture.find(@deplo.prefecture_id)[:name] %><%= @deplo.municipality%>
     </h4>
+    <h4>
+      投&emsp;稿&emsp;者：<%= @deplo.user[:nickname] %>
   </div>
+
+  <% if user_signed_in? %>
+    <% if current_user == @deplo.user %>
+      <%= link_to "編集する", edit_deplo_path %><br/>
+      <%= link_to "削除する", deplo_path, method: :delete %><br/><br/>
+    <% end %>
+  <% end %>
   <%= link_to "トップページに戻る", root_path %>
 </div>
