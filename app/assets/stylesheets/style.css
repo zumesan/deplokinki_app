@@ -114,6 +114,15 @@
   background-color: white;
 }
 
+.deplo__img__content {
+  position: relative;
+}
+
+.deplo__img {
+  width: 33vh;
+  height: 33vh;
+}
+
 /* 詳細表示機能 */
 
 .deplo__info{
