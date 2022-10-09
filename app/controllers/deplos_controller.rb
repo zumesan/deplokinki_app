@@ -40,6 +40,9 @@ class DeplosController < ApplicationController
     end
   end
 
+  def destroy
+  end
+
 private
   def set_deplo
     @deplo = Deplo.find(params[:id])
