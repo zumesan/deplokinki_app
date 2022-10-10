@@ -118,6 +118,14 @@
   position: relative;
 }
 
+.deplo__box__img {
+  height: 50vh;
+  width: 60vw;
+  min-height: 500px;
+  background-color: rgb(205, 202, 202);
+  object-fit: contain;
+}
+
 .deplo__img {
   width: 33vh;
   height: 33vh;
