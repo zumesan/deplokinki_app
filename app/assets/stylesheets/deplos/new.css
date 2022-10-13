@@ -1,3 +1,8 @@
+.click-upload {
+  margin: 15px 0;
+  min-width: 250px;
+}
+
 .indispensable {
   background: #ea352d;
   margin-left: 8px;
@@ -36,4 +41,14 @@
 
 .question-text {
   display: flex;
+}
+
+/* 画像表示 */
+
+.preview-image {
+  height: 20vh;
+  width: 24vw;
+  min-height: 200px;
+  background-color: rgb(205, 202, 202);
+  object-fit: contain;
 }

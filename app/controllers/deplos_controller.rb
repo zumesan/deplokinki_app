@@ -53,7 +53,7 @@ private
   end
 
   def deplo_params
-    params.require(:deplo).permit(:deplo_title, :deplo_info, :municipality, :category_id, :prefecture_id, :image ).merge(user_id: current_user.id)
+    params.require(:deplo).permit(:deplo_title, :deplo_info, :municipality, :category_id, :prefecture_id, {images: []} ).merge(user_id: current_user.id)
   end
 
   def contributor_confirmation

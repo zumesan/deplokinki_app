@@ -9,6 +9,12 @@
     <h3>
       <%= @deplo.deplo_info%>
     </h3>
+    <%= image_tag deplo.images[0] %> <%#　imagesを表示　%>
+    <% @deplo.images[1..-1].each do |deplo| %> <%# テーブルに保存されているimagesを順番に表示 %>
+      <div class="">
+        <%= image_tag image %>
+      </div>
+    <% end %>
     <h4>
       カテゴリー：<%= Category.find(@deplo.category_id)[:name] %>
     </h4>
