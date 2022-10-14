@@ -20,42 +20,52 @@ document.addEventListener('DOMContentLoaded', function(){
     previewImage.setAttribute('class', 'preview-image');
     previewImage.setAttribute('src', blob);
 
+    
     // 削除ボタンを生成
     const deleteButton = document.createElement("div");
     deleteButton.setAttribute("class", "image-delete-button");
     deleteButton.innerText = "削除";
 
+
     // 削除ボタンをクリックしたらプレビューとfile_fieldを削除させる
     deleteButton.addEventListener("click", () => deleteImage(dataIndex));
+
 
     //生成したHTML要素をブラウザに表示
     previewWrapper.appendChild(previewImage);//指定した親要素の子要素としてHTML要素を追加
     previewWrapper.appendChild(deleteButton);
     previewList.appendChild(previewWrapper);
-
   };
+
 
   // file_fieldを生成・表示する関数
   const buildNewFileField = () => {
+
 
     // 2枚目用のfile_fieldを作成
     const newFileField = document.createElement('input');
     newFileField.setAttribute('type', 'file');
     newFileField.setAttribute('name', 'deplo[images][]');
 
+
     // 最後のfile_fieldを取得
     const lastFileField = document.querySelector('input[type="file"][name="deplo[images][]"]:last-child');
+
+
     // nextDataIndex = 最後のfile_fieldのdata-index + 1
     const nextDataIndex = Number(lastFileField.getAttribute('data-index')) +1;
     newFileField.setAttribute('data-index', nextDataIndex);
 
+
     // 追加されたfile_fieldにchangeイベントをセット
     newFileField.addEventListener("change", changedFileField);
+
 
     // 生成したfile_fieldを表示
     const fileFieldsArea = document.querySelector('.click-upload');
     fileFieldsArea.appendChild(newFileField);
   };
+
 
   // 指定したdata-indexを持つプレビューとfile_fieldを削除する
   const deleteImage = (dataIndex) => {

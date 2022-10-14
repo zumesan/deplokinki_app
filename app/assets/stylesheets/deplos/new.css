@@ -1,6 +1,23 @@
-.click-upload {
-  margin: 15px 0;
-  min-width: 250px;
+.deplos-sell-contents {
+  background-color: #f5f5f5;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  min-width: 500px;
+}
+
+.deplos-sell-main {
+  background-color: #FFF;
+  width: 70vw;
+  min-width: 450px;
+  padding: 10vh 15vw;
+}
+
+.deplos-sell-title {
+  font-size: 22px;
+  font-weight: bold;
+  text-align: center;
 }
 
 .indispensable {
@@ -44,6 +61,9 @@
 }
 
 /* 画像表示 */
+.preview {
+
+}
 
 .preview-image {
   height: 20vh;
@@ -51,4 +71,24 @@
   min-height: 200px;
   background-color: rgb(205, 202, 202);
   object-fit: contain;
+}
+
+.image-delete-button {
+  text-align: center;
+  border: solid 1px;
+  cursor: pointer;
+  
+  margin-bottom: 5px;
+}
+
+.img-upload {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  padding: 2vh 0;
+}
+
+.click-upload {
+  margin: 15px 0;
+  min-width: 250px;
 }

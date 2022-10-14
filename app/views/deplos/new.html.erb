@@ -1,16 +1,18 @@
-<div class="">
-  <h2 class="">地域の情報を発信しよう!</h2>
+<div class="deplos-sell-main">
+  <h2 class="deplos-sell-title">地域の情報を発信しよう!</h2>
   <%= form_with model:@deplo, id: 'deplo-image', url: deplos_path, local: true do |f| %>
 
     <%= render 'shared/error_messages', model: f.object %>
 
-    <div class="weight-bold-text">
-      画像
-    </div>
-    <div class="click-upload">
-      <div id='previews'>
+    <div class="img-upload">
+      <div class="weight-bold-text">
+        画像
       </div>
-      <%= f.file_field :images, name: 'deplo[images][]', data: {index: 0} %>
+      <div class="click-upload">
+        <div id='previews'>
+        </div>
+        <%= f.file_field :images, name: 'deplo[images][]', data: {index: 0} %>
+      </div>
     </div>
     <div class="">
       <div class="weight-bold-text">
