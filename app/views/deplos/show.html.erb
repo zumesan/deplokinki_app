@@ -3,18 +3,19 @@
     <h2>
       <%= @deplo.deplo_title %>
     </h2>
-    <div class="deplo__img__content">
-      <%= image_tag @deplo.image, class: ""%>
-    </div>
     <h3>
       <%= @deplo.deplo_info%>
     </h3>
-    <%= image_tag deplo.images[0] %> <%#　imagesを表示　%>
-    <% @deplo.images[1..-1].each do |deplo| %> <%# テーブルに保存されているimagesを順番に表示 %>
-      <div class="">
-        <%= image_tag image %>
+    <div class="deplo__img__contents">
+    <%= image_tag @deplo.images[0], class: "deplo__box__img" %> <%#　imagesを表示　%>
+      <div class="other__images">
+        <% @deplo.images[1..-1].each do |image| %> <%# テーブルに保存されているimagesを順番に表示 %>
+          <div class="other__image" >
+            <%= image_tag image %>
+          </div>
+        <% end %>
       </div>
-    <% end %>
+    </div>
     <h4>
       カテゴリー：<%= Category.find(@deplo.category_id)[:name] %>
     </h4>

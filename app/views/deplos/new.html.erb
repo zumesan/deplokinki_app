@@ -9,10 +9,12 @@
         画像
       </div>
       <div class="click-upload">
-        <div id='previews'>
+        <p>
+          クリックしてファイルをアップロード
+        </p>
+        <div id='previews'></div> <%#プレビューを表示する%>
+          <%= f.file_field :images, name: 'deplo[images][]', data: {index: 0} %> <%#画像を渡す%>
         </div>
-        <%= f.file_field :images, name: 'deplo[images][]', data: {index: 0} %>
-      </div>
     </div>
     <div class="">
       <div class="weight-bold-text">

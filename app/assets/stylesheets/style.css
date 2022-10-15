@@ -138,3 +138,11 @@
   color: black;
   padding: 1vw;
 }
+
+.other__images {
+  display: flex;
+}
+
+.other__image {
+  margin-right: 10px;
+}

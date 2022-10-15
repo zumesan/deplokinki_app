@@ -14,7 +14,9 @@
     <ul class='deplo__lists'>
       <%= link_to deplo_path(deplo.id), method: :get do %>
       <li class='list'>
-        <%= image_tag deplo.images[0] %><br/>
+        <div class="deplo__img__contents">
+          <%= image_tag deplo.images[0].variant(resize: '200x200'), class: "deplo__img" %><br/>
+        </div>
         <h3 class='title'>
           <%= deplo.deplo_title %>
         </h3>
