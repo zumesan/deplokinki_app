@@ -6,6 +6,7 @@
     <h3>
       <%= @deplo.deplo_info%>
     </h3>
+    <% if @deplo.images.present? %>
     <div class="deplo__img__contents">
     <%= image_tag @deplo.images[0], class: "deplo__box__img" %> <%#　imagesを表示　%>
       <div class="other__images">
@@ -16,6 +17,11 @@
         <% end %>
       </div>
     </div>
+    <% else %>
+      <div class="deplo__img__images">
+        <%= image_tag("no_image.001.jpeg", class: :no__img) %>
+      </div>
+    <% end %>
     <h4>
       カテゴリー：<%= Category.find(@deplo.category_id)[:name] %>
     </h4>
