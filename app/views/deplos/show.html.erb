@@ -1,14 +1,29 @@
 <div>
   <div>
     <h2>
-      <%= @deplo.deplo_title %>
-    </h2>
-    <div class="deplo__img__content">
-      <%= image_tag @deplo.image, class: ""%>
-    </div>
+      タイトル：<%= @deplo.deplo_title %>
+    </h2><br/>
     <h3>
-      <%= @deplo.deplo_info%>
-    </h3>
+      紹介内容：<%= @deplo.deplo_info%>
+    </h3><br/>
+    <% if @deplo.images.present? %>
+    <div class="deplo__img__contents">
+    <%= image_tag @deplo.images[0], class: :deplo__box__img %> <%#　imagesを表示　%>
+      <div class="other__images">
+        <% @deplo.images[1..-1].each do |image| %> <%# テーブルに保存されているimagesを順番に表示 %>
+          <div class="other__image" >
+            <%= image_tag image %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+    <% else %>
+      <div class="deplo__img__images">
+        <%= image_tag("no_image.001.jpeg", class: :no__img) %>
+      </div>
+    <% end %>
+    <br/>
+    <h3>詳細</h3>
     <h4>
       カテゴリー：<%= Category.find(@deplo.category_id)[:name] %>
     </h4>
@@ -25,5 +40,6 @@
       <%= link_to "削除する", deplo_path, method: :delete %><br/><br/>
     <% end %>
   <% end %>
+  <br/><br/>
   <%= link_to "トップページに戻る", root_path %>
 </div>

@@ -6,7 +6,7 @@ class Deplo < ApplicationRecord
   belongs_to :prefecture
   has_many :deplo_records
   has_many :users, through: :deplo_records
-  has_one_attached :image
+  has_many_attached :images
 
   validates :deplo_title, :deplo_info, :municipality, presence: true
   

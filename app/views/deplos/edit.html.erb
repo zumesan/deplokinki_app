@@ -1,16 +1,28 @@
-<div class="">
-  <h2 class="">地域の情報を発信しよう!</h2>
-  <%= form_with model:@deplo, url: deplo_path(@deplo), local: true do |f| %>
+<div class="deplos-sell-main">
+  <h2 class="deplos-sell-title">地域の情報を発信しよう!</h2>
+  <%= form_with model:@deplo, id: 'deplo-image', url: deplo_path(@deplo), local: true do |f| %>
       
     <%= render 'shared/error_messages', model: f.object %>
-      
+    
+    <div class="img-upload">
+      <div class="weight-bold-text">
+        画像
+      </div>
+      <div class="click-upload">
+        <p>
+          クリックしてファイルをアップロード
+        </p>
+        <div id='previews'></div> <%#プレビューを表示する%>
+          <%= f.file_field :images, name: 'deplo[images][]', data: {index: 0} %> <%#画像を渡す%>
+        </div>
+    </div>
     <div class="">
       <div class="weight-bold-text">
         タイトル
         <span class="indispensable">必須</span>
       </div>
       <%#タイトル入力フォーム%>
-      <%= f.text_area :deplo_title, class:"", id:"deplo-title", placeholder:"タイトル（必須 40文字まで)", maxlength:"40" %>
+      <%= f.text_area :deplo_title, class:"deplos__text", id:"deplo-title", placeholder:"タイトル（必須 40文字まで)", maxlength:"40" %>
     </div>
     <div class="">
       <div class="weight-bold-text">
@@ -18,7 +30,7 @@
         <span class="indispensable">必須</span>
       </div>
       <%#紹介内容入力フォーム%>
-      <%= f.text_area :deplo_info, class:"", id:"deplo-info"%>
+      <%= f.text_area :deplo_info, class:"deplos__info__text", id:"deplo-info"%>
     </div>
     <div class="">
       <div class="weight-bold-text">紹介内容の詳細</div>
@@ -40,13 +52,13 @@
             <span class="indispensable">必須</span>
           </div>
           <%#市区町村入力フォーム%>
-          <%= f.text_area :municipality, class:"", id:"municipality"%>
+          <%= f.text_area :municipality, class:"deplos__text", id:"municipality"%>
         </div>
       </div>
-    </div>
-    <div class="sell-btn-contents">
-      <%= f.submit "変更する" ,class:"sell-btn" %><br /><br />
-      <%=link_to 'トップページへ戻る', root_path, class:"back-btn" %>
+      <div class="sell-btn-contents">
+        <%= f.submit "変更する" ,class:"sell-btn" %><br /><br />
+        <%=link_to 'トップページへ戻る', root_path, class:"back-btn" %>
+      </div>
     </div>
   <% end %>
 </div>
