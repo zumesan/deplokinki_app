@@ -17,13 +17,9 @@
         </div>
         <div class="search_bar_contents">
 
-          <%= search_form_for @search, url: search_deplos_path, html: {id: "detailed-search-form"} do |f| %>
-            <div class="search-field">
-              <%= f.label :deplo_title_cont, '検索フォーム' %>
-              <br>
-              <%= f.text_field :deplo_title_cont, placeholder: 'キーワード' %>
-            </div>
-            <%= f.submit '検索' %>
+          <%= form_tag(search_deplos_path,:method => 'get') do %>
+            <%= text_field_tag :search %>
+            <%= submit_tag 'Search', :name => nil %>
           <% end %>
 
         </div>

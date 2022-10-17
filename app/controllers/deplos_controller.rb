@@ -1,6 +1,6 @@
 class DeplosController < ApplicationController
-  before_action :set_deplo, except: [:index, :prefecture, :new, :create]
-  before_action :authenticate_user!, except: [:index, :prefecture, :show]
+  before_action :set_deplo, except: [:index, :prefecture, :new, :create, :search]
+  before_action :authenticate_user!, except: [:index, :prefecture, :show, :search]
   before_action :contributor_confirmation, only: [:edit, :update, :destroy]
   before_action :set_search
 
@@ -46,6 +46,11 @@ class DeplosController < ApplicationController
     if deplo.destroy
       redirect_to root_path
     end
+  end
+
+  def search
+    #application.html.erbのフォームから取得したパラメータをモデルに渡す
+    @deplos = Deplo.search(params[:search])
   end
 
   

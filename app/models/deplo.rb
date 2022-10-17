@@ -15,4 +15,9 @@ class Deplo < ApplicationRecord
   validates :category_id, numericality: { greater_than_or_equal_to:1 ,less_than_or_equal_to:6, message: "is invalid" }
   validates :prefecture_id, numericality: { greater_than_or_equal_to:1 ,less_than_or_equal_to:7, message: "is invalid" }
 
+  def self.search(search)
+    return Deplo.all unless search
+    Deplo.where(['deplo_title LIKE ?', "%#{search}%"])
+  end
+
 end

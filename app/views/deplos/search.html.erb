@@ -1,0 +1,14 @@
+<div class="deplo__contents">
+  <h3>検索結果</h3><br>
+<% @deplos.each do |deplos| %>
+<ul class="deplo__lists">
+<%= link_to deplo_path(deplos.id), method: :get do %>
+  <li>
+    <%= deplos.deplo_title  %>
+  </li>
+  <%end%>
+</ul>
+<%end%>
+<br>
+<%= link_to 'トップページに戻る', root_path %>
+</div>
