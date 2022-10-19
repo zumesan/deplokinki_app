@@ -17,7 +17,7 @@ class Deplo < ApplicationRecord
 
   def self.search(search)
     return Deplo.all unless search
-    Deplo.where(['deplo_title LIKE ?', "%#{search}%"])
+    Deplo.where(['deplo_title LIKE ? || deplo_info LIKE ? || municipality LIKE ?', "%#{search}%", "%#{search}%", "%#{search}%"])
   end
 
 end
