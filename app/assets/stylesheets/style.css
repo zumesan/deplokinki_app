@@ -172,3 +172,13 @@
   border: 1px solid black;
   display: flex;
 }
+
+/*検索*/
+
+.search-fields{
+  display: flex;
+}
+
+.search-field{
+  margin: 0.5rem 0;
+}

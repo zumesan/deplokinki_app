@@ -15,12 +15,23 @@
         <div>
           <%= link_to image_tag("deplo_logo.png", class: :logo), root_path %>
         </div>
+
         <div class="search_bar_contents">
 
-          <%= form_tag(search_deplos_path,:method => 'get') do %>
-            <%= text_field_tag :search %>
-            <%= submit_tag 'Search', :name => nil %>
-          <% end %>
+        <%= search_form_for @q, url: search_deplos_path, html: {id: "detailed-search-form"} do |f| %>
+          <div class="search-fields">
+            <div class="search-field">
+
+              <%= f.text_field :deplo_title_or_deplo_info_or_municipality_cont, placeholder: 'キーワード検索' %>
+            </div>
+          <%= f.submit '検索' %>
+          </div>
+        <% end %>
+
+          <%# form_tag(search_deplos_path,:method => 'get') do %>
+            <%# text_field_tag :search %>
+            <%# submit_tag 'キーワード検索', :name => nil %>
+          <%# end %>
 
         </div>
         <div class="nav_right">

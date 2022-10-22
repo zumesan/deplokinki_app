@@ -49,8 +49,7 @@ class DeplosController < ApplicationController
   end
 
   def search
-    #application.html.erbのフォームから取得したパラメータをモデルに渡す
-    @deplos = Deplo.search(params[:search])
+    
   end
 
   
@@ -69,8 +68,8 @@ private
   end
 
   def set_search
-    @search = Deplo.ransack(params[:q]) #検索オブジェクトを生成、paramsでransackを使用したフォームから送られてくるパラメーターを受け取る。
-    @searches = @search.result #resultで検索結果を取得する
+    @q = Deplo.ransack(params[:q]) #検索オブジェクトを生成、paramsでransackを使用したフォームから送られてくるパラメーターを受け取る。
+    @searches = @q.result #resultで検索結果を取得する
   end
 
 end
