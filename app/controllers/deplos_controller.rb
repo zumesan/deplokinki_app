@@ -67,9 +67,4 @@ private
     redirect_to root_path unless current_user == @deplo.user 
   end
 
-  def set_search
-    @q = Deplo.ransack(params[:q]) #検索オブジェクトを生成、paramsでransackを使用したフォームから送られてくるパラメーターを受け取る。
-    @searches = @q.result #resultで検索結果を取得する
-  end
-
 end
