@@ -1,7 +1,8 @@
 class DeplosController < ApplicationController
-  before_action :set_deplo, except: [:index, :prefecture, :new, :create]
-  before_action :authenticate_user!, except: [:index, :prefecture, :show]
+  before_action :set_deplo, except: [:index, :prefecture, :new, :create, :search]
+  before_action :authenticate_user!, except: [:index, :prefecture, :show, :search]
   before_action :contributor_confirmation, only: [:edit, :update, :destroy]
+  before_action :set_search
 
   def index
     @deplos = Deplo.all
@@ -47,6 +48,12 @@ class DeplosController < ApplicationController
     end
   end
 
+  def search
+    
+  end
+
+  
+
 private
   def set_deplo
     @deplo = Deplo.find(params[:id])
@@ -59,4 +66,10 @@ private
   def contributor_confirmation
     redirect_to root_path unless current_user == @deplo.user 
   end
+
+  def set_search
+    @q = Deplo.ransack(params[:q]) #検索オブジェクトを生成、paramsでransackを使用したフォームから送られてくるパラメーターを受け取る。
+    @searches = @q.result #resultで検索結果を取得する
+  end
+
 end
