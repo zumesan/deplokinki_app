@@ -10,7 +10,7 @@
   </head>
 
   <body>
-    <header class="">
+    <header class="header">
       <div class="top_header">
         <div>
           <%= link_to image_tag("deplo_logo.png", class: :logo), root_path %>
@@ -18,20 +18,18 @@
 
         <div class="search_bar_contents">
 
-        <%= search_form_for @q, url: search_deplos_path, html: {id: "detailed-search-form"} do |f| %>
-          <div class="search-fields">
-            <div class="search-field">
-
-              <%= f.text_field :deplo_title_or_deplo_info_or_municipality_cont, placeholder: 'キーワード検索' %>
+          <%= search_form_for @q, url: search_deplos_path, html: {id: "detailed-search-form"} do |f| %>
+            <div class="search-fields">
+              <div class="search-field">
+                <%= f.text_field :deplo_title_or_deplo_info_or_municipality_cont, placeholder: 'キーワード' %>
+              </div>
             </div>
-          <%= f.submit '検索' %>
-          </div>
-        <% end %>
+            <%= f.collection_select :prefecture_id_eq, Prefecture.all, :id, :name, include_blank: "都道府県を選択" %>
 
-          <%# form_tag(search_deplos_path,:method => 'get') do %>
-            <%# text_field_tag :search %>
-            <%# submit_tag 'キーワード検索', :name => nil %>
-          <%# end %>
+            <%= f.collection_select :category_id_eq, Category.all, :id, :name, include_blank: "カテゴリーを選択" %>
+            <%= f.submit '絞り込み検索', class: :search_btn  %>
+          <% end %>
+          
 
         </div>
         <div class="nav_right">
