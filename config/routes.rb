@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   root to: "deplos#index"
   get '/deplos/prefecture/:id', to: "deplos#prefecture"
   resources :deplos do
+    resources :comments, only: [:create]
     collection do
       get 'search'
     end
