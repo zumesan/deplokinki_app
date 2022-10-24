@@ -48,6 +48,7 @@
     <p>
       <strong><%= link_to comment.user.nickname, "/users/#{comment.user_id}" %>：</strong>
       <%= comment.comment_content%>
+      <%= link_to "コメント削除", deplo_comment_path(comment.deplo_id, comment.id), method: :delete %>
     </p>
   <% end %>
 

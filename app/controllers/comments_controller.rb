@@ -4,6 +4,13 @@ class CommentsController < ApplicationController
     redirect_to "/deplos/#{comment.deplo.id}"
   end
 
+  def destroy
+    deplo = Deplo.find(params[:deplo_id])
+    comment = deplo.comments.find(params[:id])
+    comment.destroy
+    redirect_to "/deplos/#{comment.deplo.id}"
+  end
+
   private
 
   def comment_params
