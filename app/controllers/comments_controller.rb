@@ -7,8 +7,12 @@ class CommentsController < ApplicationController
   def destroy
     deplo = Deplo.find(params[:deplo_id])
     comment = deplo.comments.find(params[:id])
-    comment.destroy
-    redirect_to "/deplos/#{comment.deplo.id}"
+    if current_user == comment.user
+      comment.destroy
+      redirect_to "/deplos/#{comment.deplo.id}"
+    else
+      redirect_to root_path
+    end
   end
 
   private
