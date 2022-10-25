@@ -4,8 +4,7 @@ class Deplo < ApplicationRecord
   belongs_to :user
   belongs_to :category
   belongs_to :prefecture
-  has_many :deplo_records
-  has_many :users, through: :deplo_records
+  has_many :comments, dependent: :destroy #Deplo.commentsで、投稿が所有するコメントを取得できる。
   has_many_attached :images
 
   validates :deplo_title, :deplo_info, :municipality, presence: true
