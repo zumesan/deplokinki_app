@@ -18,6 +18,8 @@ class DeplosController < ApplicationController
   end
 
   def show
+    @comment = Comment.new
+    @comments = @deplo.comments.includes(:user)
   end
 
   def create
