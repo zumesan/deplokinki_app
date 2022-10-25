@@ -18,8 +18,6 @@ class DeplosController < ApplicationController
   end
 
   def show
-    @comment = Comment.new #deplos/show.html.erbでform_withを使用して、comments#createを実行するリクエストを飛ばすためのインスタンスを生成。
-    @comments = @deplo.comments.includes(:user)#deplosテーブルとcommentsテーブルはアソシエーションが組まれているので、@deplo.commentsとすることで、@deploへ投稿されたすべてのコメントを取得できる。
   end
 
   def create
@@ -30,7 +28,6 @@ class DeplosController < ApplicationController
       render :new
       return
     end
-
   end
 
   def edit
