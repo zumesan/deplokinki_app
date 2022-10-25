@@ -7,7 +7,7 @@ class CommentsController < ApplicationController
   def destroy
     deplo = Deplo.find(params[:deplo_id])
     comment = deplo.comments.find(params[:id])
-    if current_user == comment.user
+    if current_user == comment.user #コメントの投稿者以外のアクションへのアクセスを制限
       comment.destroy
       redirect_to "/deplos/#{comment.deplo.id}"
     else
