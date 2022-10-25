@@ -23,7 +23,7 @@ class User < ApplicationRecord
   # 電話番号のバリデーション
   validates :phone_number, numericality: {message: "は半角数字で入力してください"}, format:{ with: VALID_PHONE_REGEX, allow_blank:true }
 
-  has_many :comments #User.commentsで、ユーザーの所有するコメントを取得できる。
-  has_many :deplos
+  has_many :deplo_records
+  has_many :deplos, through: :deplo_records
 
 end
