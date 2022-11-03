@@ -13,4 +13,6 @@ class ApplicationController < ActionController::Base
     @searches = @q.result #resultで検索結果を取得する
   end
 
+  
+
 end
