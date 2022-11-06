@@ -12,12 +12,16 @@ ja:
         last_name_kana: "苗字（カナ）"
         email: "メールアドレス"
         password: "パスワード"
+        password_confirmation: "パスワード（確認）"
+        current_password: "現在のパスワード"
+        phone_number: "電話番号"
       deplo:
         deplo_title: "タイトル"
         deplo_info: "内容"
         images: "画像"
         category_id: "カテゴリー"
         prefecture_id: "都道府県"
+        municipality: "市区町村"
   activemodel:
     attributes:
       purchase_destination:
