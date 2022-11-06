@@ -1,0 +1,33 @@
+ja:
+  errors:
+    messages:
+      not_saved: "登録に失敗しました"
+  activerecord:
+    attributes:
+      user:
+        nickname: "ニックネーム"
+        first_name: "名前"
+        last_name: "苗字"
+        first_name_kana: "名前（カナ）"
+        last_name_kana: "苗字（カナ）"
+        email: "メールアドレス"
+        password: "パスワード"
+      deplo:
+        deplo_title: "タイトル"
+        deplo_info: "内容"
+        images: "画像"
+        category_id: "カテゴリー"
+        prefecture_id: "都道府県"
+  activemodel:
+    attributes:
+      purchase_destination:
+        prefecture_id: "都道府県"
+        municipality: "市区町村"
+        phone_number: "電話番号"
+  devise:
+    sessions:
+      user:
+        signed_out: "ログアウトされました"
+    failure:
+      user:
+        invalid: "必要事項を入力してください"
