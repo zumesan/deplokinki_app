@@ -12,7 +12,7 @@ class Deplo < ApplicationRecord
   validates :deplo_title, length: { minimum: 1, maximum: 40 }
   validates :deplo_info, length: { minimum: 1, maximum: 140 }
   validates :images, length: { maximum: 5 }
-  validates :category_id, numericality: { greater_than_or_equal_to:1 ,less_than_or_equal_to:6, message: "is invalid" }
-  validates :prefecture_id, numericality: { greater_than_or_equal_to:1 ,less_than_or_equal_to:7, message: "is invalid" }
+  validates :category_id, numericality: { greater_than_or_equal_to:1 ,less_than_or_equal_to:6, message: "を選択してください" }
+  validates :prefecture_id, numericality: { greater_than_or_equal_to:1 ,less_than_or_equal_to:7, message: "を選択してください" }
 
 end
