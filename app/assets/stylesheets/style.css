@@ -1,63 +1,130 @@
 /* ヘッダー */
 
-.header {
-  background-color: white;
-  height: auto;
-}
-
 .top_header{
-  display: flex;
-}
-
-.logo {
-  width: 30vw;
-  padding: 20px 0 20px 0;
-}
-
-.inner {
-  width: 1024px;
-  margin: 0 auto;
-}
-
-.nav {
-  width: 100%;
+  height: 200px;
+  padding: 0 40px;
   display: flex;
   justify-content: space-between;
 }
 
-.nav__btn{
-  display: inline-block;
-  padding: 0.4em 1.6em;
-  font-size: 0.8em;
-  color: #87CEFA;
-  text-decoration: none;
-  user-select: none;
-  border: 1px #87CEFA solid;
-  border-radius: 3px;
-  transition: 0.4s ease;
+.logo {
+  width: 80%;
+  height: 80%;
+  margin: 10px;
 }
 
 .nav_right{
+  padding: 0 20px 0 20px;
   width: 30vw;
 }
 
-.nav__btn:hover{
-  color: #fff;
-  background: #87CEFA;
+.right-content{
+  width: 100%;
+  height: 80%;
 }
 
-.nav__logout{
-  display: inline-block;
-  padding: 0.4em 1.6em;
-  font-size: 0.8em;
-  color: #87CEFA;
+.profile-btn{
+  display: flex;
+  justify-content: space-between;
+  height: 50%;
+}
+
+.nickname-btn{
+  width: 60%;
+  margin: 20px 0 20px 0;
+}
+
+.nickname-btn a{
   text-decoration: none;
-  user-select: none;
+  padding: 10px;
+  font-size: 2vmin;
+  color: black;
 }
 
-.nav__logout:hover{
-  opacity: 0.5;
+.logout-btn{
+  width: 40%;
+  margin: 20px;
 }
+
+.logout-btn a{
+  text-decoration: none;
+  padding: 10px;
+  border: 1px solid black;
+  font-size: 2.5vmin;
+  color: black;
+}
+
+.new-post{
+  width: 100%;
+  height: 50%;
+  display: table;
+  text-align: center;
+  background-color: orange;
+}
+
+.new-post a{
+  text-decoration: none;
+  display: table-cell;
+  vertical-align: middle;
+  font-size: 4vmin;
+  color: white;
+}
+
+
+
+
+
+
+/*検索*/
+.btn-field{
+  height: 50%;
+  width: 20%;
+}
+
+.search_bar_contents{
+  width: 40vw;
+}
+
+.search_btn {
+  height: 50px;
+  width: 100%;
+}
+
+.search-fields{
+  display: flex;
+  height: auto;
+}
+
+.search-field{
+  height: 50px;
+  width: 40vw;
+  margin: 20px;
+}
+
+.search-form{
+  margin: 0 20px 0 0;
+  width: 95%;
+}
+
+.search-select{
+  height: 100%;
+  width: 100%;
+}
+
+.select-fields{
+  display: flex;
+  width: 40vw;
+}
+
+.select-field{
+  height: 50%;
+  width: 80%;
+  margin: 0 20px;
+}
+
+
+
+
 
 /* フォーム周り */
 .form__wrapper{
@@ -96,7 +163,16 @@
 }
 
 
+
+
+
+
 /* 一覧表示機能 */
+.index-contents{
+  padding: 10px;
+}
+
+
 .deplo__contents {
   background-color: #FFF;
   display: flex;
@@ -164,6 +240,11 @@
   resize: none;
 }
 
+
+
+
+
+
 /* 詳細表示機能 */
 
 .deplo__info{
@@ -185,22 +266,4 @@
   height: 33vh;
   border: 1px solid black;
   display: flex;
-}
-
-
-/*検索*/
-.search_bar_contents{
-  width: 40vw;
-}
-
-.search_btn {
-  margin: 8px 0 10px 0;
-}
-
-.search-fields{
-  display: flex;
-}
-
-.search-field{
-  margin: 0.5rem 0;
 }

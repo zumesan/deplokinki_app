@@ -10,40 +10,58 @@
   </head>
 
   <body>
-    <header class="header">
+    <%#header class="header"#%>
       <div class="top_header">
-        <div>
+        <div class="nav-left">
           <%= link_to image_tag("deplo_logo.png", class: :logo), root_path %>
         </div>
 
         <div class="search_bar_contents">
 
           <%= search_form_for @q, url: search_deplos_path, html: {id: "detailed-search-form"} do |f| %>
-            <div class="search-fields">
-              <div class="search-field">
-                <%= f.text_field :deplo_title_or_deplo_info_or_municipality_cont, placeholder: 'キーワード' %>
+            <div class="search-field">
+              <h3>検索フォーム</h3>
+              <%= f.text_field :deplo_title_or_deplo_info_or_municipality_cont, placeholder: 'キーワード検索', class: 'search-form' %>
+            </div>
+            <div class="select-fields">
+              <div class="select-field">
+                <%= f.collection_select :prefecture_id_eq, Prefecture.all, :id, :name, {include_blank: "都道府県を選択"}, {class:"search-select"} %>
+                <%= f.collection_select :category_id_eq, Category.all, :id, :name, {include_blank: "カテゴリーを選択"}, {class:"search-select"} %>
+              </div>
+              <div class="btn-field">
+                <%= f.submit '検索', class: :search_btn  %>
               </div>
             </div>
-            <%= f.collection_select :prefecture_id_eq, Prefecture.all, :id, :name, include_blank: "都道府県を選択" %>
-
-            <%= f.collection_select :category_id_eq, Category.all, :id, :name, include_blank: "カテゴリーを選択" %>
-            <%= f.submit '絞り込み検索', class: :search_btn  %>
           <% end %>
           
 
         </div>
         <div class="nav_right">
-          <% if user_signed_in? %>
-            <%= link_to current_user.nickname, deplos_prefecture_users_show_path %>
-            <%= link_to '新規投稿', new_deplo_path, class:"back-btn" %>
-            <%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class:"back-btn" %>
-          <% else %>
-            <%= link_to '新規登録', new_user_registration_path, class:"back-btn" %>
-            <%= link_to 'ログイン', new_user_session_path, class:"back-btn" %>
-          <% end %>
+          <div class="right-content">
+            <% if user_signed_in? %>
+              <div class="profile-btn">
+                <div class="nickname-btn">
+                  <%= link_to "#{current_user.nickname}さんこんにちは！", deplos_prefecture_users_show_path %>
+                </div>
+                <div class="logout-btn">
+                  <%= link_to 'ログアウト', destroy_user_session_path, method: :delete %> 
+                </div>
+              </div>
+              <div class="new-post">
+                <%= link_to 'Deplo新規投稿', new_deplo_path %>
+              </div>
+            <% else %>
+              <div class="#">
+                <%= link_to '新規登録', new_user_registration_path %>
+              </div>
+              <div class="#">
+                <%= link_to 'ログイン', new_user_session_path %>
+              </div>
+            <% end %>
+          </div>
         </div>
       </div>
-    </header>
+    <%#/header#%>
     <%= yield %>
   </body>
 </html>

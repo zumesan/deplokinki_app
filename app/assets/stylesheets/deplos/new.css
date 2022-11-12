@@ -64,7 +64,11 @@
 /* 画像表示 */
 .preview {
   width: 24vw;
+}
 
+.previews{
+  display: flex;
+  justify-content: space-between;
 }
 
 .preview-image {
