@@ -1,11 +1,11 @@
-<div>
-  <div>
-    <h2>
+<div class="body-detail">
+  <div class="show-padding">
+    <div class="show-text">
       タイトル：<%= @deplo.deplo_title %>
-    </h2><br/>
-    <h3>
+    </div><br/>
+    <div class="show-text">
       紹介内容：<%= @deplo.deplo_info%>
-    </h3><br/>
+    </div><br/>
     <% if @deplo.images.present? %>
     <div class="deplo__img__contents">
     <%= image_tag @deplo.images[0], class: :deplo__box__img %> <%#　imagesを表示　%>
@@ -23,45 +23,50 @@
       </div>
     <% end %>
     <br/>
-    <h3>詳細</h3>
-    <h4>
-      カテゴリー：<%= Category.find(@deplo.category_id)[:name] %>
-    </h4>
-    <h4>
-      住&emsp;&emsp;&emsp;所：<%= Prefecture.find(@deplo.prefecture_id)[:name] %><%= @deplo.municipality%>
-    </h4>
-    <h4>
-      投&emsp;稿&emsp;者：<%= @deplo.user[:nickname] %>
-  </div>
-
-  <% if user_signed_in? %>
-    <%= form_with(model: [@deplo, @comment], local: true) do |f| %>
-      <%= f.text_area :comment_content, placeholder: "コメントする", rows: "2"%>
-      <%= f.submit "SEND" %>
-    <% end %>
-  <% else %>
-    <strong><p>*** コメントの投稿には新規登録/ログインが必要です ***</p></strong>
-  <% end %>
-
-  <h4>コメント一覧</h4>
-  <% @comments.each do |comment| %>
-    <p>
-      <strong><%= link_to comment.user.nickname, "/users/#{comment.user_id}" %>：</strong>
-      <%= comment.comment_content%>
-      <% if user_signed_in? %>
-        <% if current_user == comment.user %>
-          <%= link_to "コメント削除", deplo_comment_path(comment.deplo_id, comment.id), method: :delete %>
+    <div class="show-text">
+      <p class="show-details">詳細</p>
+      <div class="show-details">
+        カテゴリー：<%= Category.find(@deplo.category_id)[:name] %>
+      </div>
+      <div class="show-details">
+        住&emsp;&emsp;&emsp;所：<%= Prefecture.find(@deplo.prefecture_id)[:name] %><%= @deplo.municipality%>
+      </div>
+      <div class="show-details">
+        投&emsp;稿&emsp;者：<%= @deplo.user[:nickname] %>
+      </div>
+    </div><br/>
+    <% if user_signed_in? %>
+        <% if current_user == @deplo.user %>
+          <%= link_to "編集する", edit_deplo_path, class: "link-btn" %><br/><br/>
+          <%= link_to "削除する", deplo_path, method: :delete, class: "link-btn" %><br/><br/>
         <% end %>
       <% end %>
-    </p>
-  <% end %>
-
-  <% if user_signed_in? %>
-    <% if current_user == @deplo.user %>
-      <%= link_to "編集する", edit_deplo_path %><br/>
-      <%= link_to "削除する", deplo_path, method: :delete %><br/><br/>
+  </div>
+  <div class="show-padding">
+    <div class="show-text">コメント一覧</div>
+    <% @comments.each do |comment| %>
+      <div class="comment-contents">
+        <div class="show-text">
+          <strong><%= comment.user.nickname %>
+          </strong><br/>
+          <%= comment.comment_content%><br/><br/>
+          <% if user_signed_in? %>
+            <% if current_user == comment.user %>
+              <%= link_to "コメント削除", deplo_comment_path(comment.deplo_id, comment.id), method: :delete %>
+            <% end %>
+          <% end %>
+        </div>
+      </div>
+    <% end %><br/>
+    <div class="show-padding">
+    <% if user_signed_in? %>
+      <%= form_with(model: [@deplo, @comment], local: true) do |f| %>
+        <%= f.text_area :comment_content, placeholder: "コメントする", rows: "4", cols: "40" %><br/>
+        <%= f.submit "コメント送信" %>
+      <% end %>
+    <% else %>
+     <strong><p>*** コメントの投稿には新規登録/ログインが必要です ***</p></strong>
     <% end %>
-  <% end %>
-  <br/><br/>
-  <%= link_to "トップページに戻る", root_path %>
+    </div>
+  </div>
 </div>

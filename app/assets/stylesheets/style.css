@@ -1,3 +1,20 @@
+/* 共通 */
+
+.body-detail{
+  display: flex;
+}
+
+.link-btn{
+  padding: 1vmin;
+  margin: 1vmin;
+  border: 1px solid rgb(167, 160, 160);
+  border-radius: 5px;
+  background-color: #f0f0f0;
+  font-size: 2.5vmin;
+}
+
+
+
 /* ヘッダー */
 
 .top_header{
@@ -247,10 +264,23 @@
 
 /* 詳細表示機能 */
 
-.deplo__info{
+.show-padding{
+  padding: 1vh;
+  width: 100%;
+}
+
+.show-text{
   background-color: white;
   color: black;
-  padding: 1vw;
+  font-size: 2.5vmin;
+}
+
+.show-text a{
+  text-decoration: none;
+}
+
+.show-details{
+  margin-bottom: 1vmin;
 }
 
 .other__images {
@@ -266,4 +296,12 @@
   height: 33vh;
   border: 1px solid black;
   display: flex;
+}
+
+.comment-contents{
+  margin: 1vh;
+  padding: 1vh;
+  font-size: 2.5vmin;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  border: 1px solid black;
 }
