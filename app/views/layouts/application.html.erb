@@ -39,23 +39,28 @@
         <div class="nav_right">
           <div class="right-content">
             <% if user_signed_in? %>
-              <div class="profile-btn">
-                <div class="nickname-btn">
-                  <%= link_to "#{current_user.nickname}さんこんにちは！", deplos_prefecture_users_show_path %>
+              <div class="acount-btn">
+                <div class="log-btn">
+                  <%= link_to '新規投稿', new_deplo_path %>
                 </div>
-                <div class="logout-btn">
+                <div class="log-btn">
                   <%= link_to 'ログアウト', destroy_user_session_path, method: :delete %> 
                 </div>
               </div>
-              <div class="new-post">
-                <%= link_to 'Deplo新規投稿', new_deplo_path %>
+              <div class="nickname-btn">
+                <%= link_to "#{current_user.nickname}さんこんにちは！", deplos_prefecture_users_show_path %>
               </div>
             <% else %>
-              <div class="#">
-                <%= link_to '新規登録', new_user_registration_path %>
+              <div class="acount-btn">
+                <div class="log-btn">
+                  <%= link_to '新規登録', new_user_registration_path %>
+                </div>
+                <div class="log-btn">
+                  <%= link_to 'ログイン', new_user_session_path %>
+                </div>
               </div>
-              <div class="#">
-                <%= link_to 'ログイン', new_user_session_path %>
+              <div class="nickname-btn">
+                <%= link_to "ゲストさんこんにちは！", new_user_registration_path %>
               </div>
             <% end %>
           </div>
