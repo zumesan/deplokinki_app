@@ -4,7 +4,7 @@
 
     <%= render 'shared/error_messages', model: f.object %>
 
-    <div class="img-upload">
+    <div class="#">
       <div class="weight-bold-text">
         画像
       </div>
@@ -12,9 +12,10 @@
         <p>
           クリックしてファイルをアップロード
         </p>
-        <div id='previews'></div> <%#プレビューを表示する%>
+        <div id='previews'>
+        </div> <%#プレビューを表示する%>
           <%= f.file_field :images, name: 'deplo[images][]', data: {index: 0} %> <%#画像を渡す%>
-        </div>
+      </div>
     </div>
     <div class="">
       <div class="weight-bold-text">

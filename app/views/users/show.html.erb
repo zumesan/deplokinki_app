@@ -1,8 +1,22 @@
-<h1>アカウント情報</h1>
-
-<h3>ユーザー名</h3>
-<%= @user.nickname %>
-<h3>メールアドレス</h3>
-<%= @user.email %>
-<br/><br/>
-<%= link_to "ユーザー編集", edit_user_registration_path %>
+<div class="deplos-sell-main">
+  <h2 class="deplos-sell-title">アカウント情報</h2><br/><br/>
+  <div class="acount-texts">
+    〜ユーザー名〜
+  </div>
+  <div class="acount-text">
+    <p>
+      <%= @user.nickname %>
+    </p>
+  </div>
+  <div class="acount-texts">
+    〜メールアドレス〜
+  </div>
+  <div class="acount-text">
+    <p>
+      <%= @user.email %>
+    </p>
+  </div>
+  <div class="acount-text">
+    <%= link_to "ユーザー編集", edit_user_registration_path %>
+  </div>
+</div>

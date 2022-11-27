@@ -1,63 +1,140 @@
+/* 共通 */
+
+.body-detail{
+  display: flex;
+  padding: 10vmin;
+}
+
+.link-btn{
+  padding: 1vmin;
+  margin: 1vmin;
+  border: 1px solid rgb(167, 160, 160);
+  border-radius: 5px;
+  background-color: #f0f0f0;
+  font-size: 2.5vmin;
+}
+
+
+
+
+
+
+
+
+
+
 /* ヘッダー */
 
-.header {
-  background-color: white;
-  height: auto;
-}
-
 .top_header{
-  display: flex;
-}
-
-.logo {
-  width: 30vw;
-  padding: 20px 0 20px 0;
-}
-
-.inner {
-  width: 1024px;
-  margin: 0 auto;
-}
-
-.nav {
-  width: 100%;
+  height: 200px;
+  padding: 0 40px;
   display: flex;
   justify-content: space-between;
 }
 
-.nav__btn{
-  display: inline-block;
-  padding: 0.4em 1.6em;
-  font-size: 0.8em;
-  color: #87CEFA;
-  text-decoration: none;
-  user-select: none;
-  border: 1px #87CEFA solid;
-  border-radius: 3px;
-  transition: 0.4s ease;
+.logo {
+  width: 80%;
+  height: 80%;
+  margin: 10px;
 }
 
 .nav_right{
+  padding: 0 20px 0 20px;
   width: 30vw;
 }
 
-.nav__btn:hover{
-  color: #fff;
-  background: #87CEFA;
+.right-content{
+  width: 100%;
+  height: 80%;
 }
 
-.nav__logout{
-  display: inline-block;
-  padding: 0.4em 1.6em;
-  font-size: 0.8em;
-  color: #87CEFA;
+.acount-btn{
+  display: flex;
+  justify-content: space-between;
+  height: 80%;
+}
+
+.nickname-btn{
+  width: 100%;
+  padding: 0 0 0 20px;
+  margin-bottom: 20px;
+}
+
+.nickname-btn a{
   text-decoration: none;
-  user-select: none;
+  padding: 2px;
+  font-size: 2.5vmin;
+  color: black;
 }
 
-.nav__logout:hover{
-  opacity: 0.5;
+.log-btn{
+  width: 50%;
+  padding-top: 20px;
+  margin: 20px;
 }
+
+.log-btn a{
+  text-decoration: none;
+  padding: 10px;
+  border: 1px solid black;
+  font-size: 3vmin;
+  color: black;
+}
+
+
+
+
+
+/*検索*/
+.btn-field{
+  height: 50%;
+  width: 20%;
+}
+
+.search_bar_contents{
+  width: 40vw;
+}
+
+.search_btn {
+  height: 50px;
+  width: 100%;
+}
+
+.search-fields{
+  display: flex;
+  height: auto;
+}
+
+.search-field{
+  height: 50px;
+  width: 40vw;
+  margin: 20px;
+}
+
+.search-form{
+  margin: 0 20px 0 0;
+  width: 95%;
+}
+
+.search-select{
+  height: 100%;
+  width: 100%;
+}
+
+.select-fields{
+  display: flex;
+  width: 40vw;
+}
+
+.select-field{
+  height: 50%;
+  width: 80%;
+  margin: 0 20px;
+}
+
+
+
+
 
 /* フォーム周り */
 .form__wrapper{
@@ -76,19 +153,7 @@
   margin-bottom: 40px;
 }
 
-.form__btn{
-  display: inline-block;
-  padding: 0.4em 1.6em;
-  font-size: 0.8em;
-  color: #fff;
-  text-decoration: none;
-  user-select: none;
-  background: #87CEFA;
-  border: 1px #87CEFA solid;
-  border-radius: 3px;
-  box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.14), 0 1px 2px 0 rgba(0, 0, 0, 0.12);
-  transition: 0.2s ease;
-}
+
 
 .form__btn:hover {
   box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.2), 0 1px 8px 0 rgba(0, 0, 0, 0.12);
@@ -96,7 +161,49 @@
 }
 
 
+
+
+
+/*アカウント情報*/
+
+.acount-infos{
+  border: 1px solid black;
+}
+
+.acount-info{
+  font-size: 3vmin;
+  font-weight: bold;
+  margin-bottom: 1vmin;
+}
+
+.acount-texts{
+  font-size: 3vmin;
+  font-weight: bold;
+  min-width: 170px;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.acount-text {
+  font-size: 2.5vmin;
+  margin: 3vh 0;
+  min-width: 250px;
+  text-align: center;
+}
+
+
+
+
+
+
+
+
 /* 一覧表示機能 */
+.index-contents{
+  padding: 10px;
+}
+
+
 .deplo__contents {
   background-color: #FFF;
   display: flex;
@@ -164,12 +271,30 @@
   resize: none;
 }
 
+
+
+
+
+
 /* 詳細表示機能 */
 
-.deplo__info{
+.show-padding{
+  padding: 1vh;
+  width: 100%;
+}
+
+.show-text{
   background-color: white;
   color: black;
-  padding: 1vw;
+  font-size: 2.5vmin;
+}
+
+.show-text a{
+  text-decoration: none;
+}
+
+.show-details{
+  margin-bottom: 1vmin;
 }
 
 .other__images {
@@ -187,20 +312,10 @@
   display: flex;
 }
 
-
-/*検索*/
-.search_bar_contents{
-  width: 40vw;
-}
-
-.search_btn {
-  margin: 8px 0 10px 0;
-}
-
-.search-fields{
-  display: flex;
-}
-
-.search-field{
-  margin: 0.5rem 0;
+.comment-contents{
+  margin: 1vh;
+  padding: 1vh;
+  font-size: 2.5vmin;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  border: 1px solid black;
 }
