@@ -40,6 +40,9 @@
           <%= link_to "編集する", edit_deplo_path, class: "link-btn" %><br/><br/>
           <%= link_to "削除する", deplo_path, method: :delete, class: "link-btn" %><br/><br/>
         <% end %>
+        <% if current_user.admin? %>
+          <%= link_to "削除する", deplo_admin_deplo_path(@deplo, @deplo.id), method: :delete, class: "link-btn" %><br/><br/>
+        <% end %>
       <% end %>
   </div>
   <div class="show-padding">
