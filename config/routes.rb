@@ -6,8 +6,9 @@ Rails.application.routes.draw do
   resources :deplos do
     namespace :admin do
       resources :deplos, only: [:index, :new, :create, :show,  :edit, :destroy]
+      resources :comments, only: [:destroy]
     end
-    resources :comments, only: [:create, :destroy]
+    resources :comments, only: [:create, :destroy] 
     collection do
       get 'search'
     end

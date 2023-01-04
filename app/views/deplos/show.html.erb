@@ -57,6 +57,9 @@
             <% if current_user == comment.user %>
               <%= link_to "コメント削除", deplo_comment_path(comment.deplo_id, comment.id), method: :delete %>
             <% end %>
+            <% if current_user.admin? %>
+              <%= link_to "コメント削除", deplo_admin_comment_path(comment.deplo_id, comment.id), method: :delete %>
+            <% end %>
           <% end %>
         </div>
       </div>
