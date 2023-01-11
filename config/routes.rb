@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
   get 'deplos/prefecture/users/show' => 'users#show'
-  devise_for :users, controllers: {registrations: 'users/registrations'}
+  devise_for :users, controllers: {
+    sessions: "users/sessions",
+    registrations: 'users/registrations'
+  }
+
   root to: "deplos#index"
   get '/deplos/prefecture/:id', to: "deplos#prefecture"
   resources :deplos do

@@ -12,8 +12,10 @@ class ApplicationController < ActionController::Base
   end
 
   def configure_permitted_parameters
-    # deviseのUserモデルにパラメーターを許可
+    # 新規登録時、deviseのUserモデルにパラメーターを許可
     devise_parameter_sanitizer.permit(:sign_up, keys: [:nickname, :first_name, :last_name, :first_name_kana, :last_name_kana, :phone_number])
+    # 登録情報更新時、deviseのUserモデルにパラメーターを許可
+    devise_parameter_sanitizer.permit(:account_update, keys: [:nickname, :phone_number])
   end
 
   def set_search
