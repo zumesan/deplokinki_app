@@ -11,7 +11,7 @@ class User < ApplicationRecord
   VALID_PHONE_REGEX = /\A\d{10}$|^\d{11}\z/ #半角数字のバリデーションの値を変数に格納
 
   validates :nickname, presence:true
-  validates :password, format:{with: VALID_PASSWORD_REGEX, message:"は半角英数字で入力してください" } #半角英数のバリデーション
+  validates :password, format:{with: VALID_PASSWORD_REGEX, message:"は半角英数字で入力してください" }, allow_blank: true #半角英数のバリデーション
   # 全角文字のバリデーション
   validates :first_name, presence:true, format:{with: /\A(?:\p{Hiragana}|\p{Katakana}|[ー－]|[一-龠々])+\z/,message:FULL_WIDTH}, length: { minimum: 1, maximum:100 }
   validates :last_name, presence:true, format:{with: /\A(?:\p{Hiragana}|\p{Katakana}|[ー－]|[一-龠々])+\z/,message:FULL_WIDTH}, length: { minimum: 1, maximum:100 }
