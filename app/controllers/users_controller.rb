@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
   def show
-    @user = current_user
+    @deplo = Deplo.where(user_id: current_user.id) #deploテーブル内のuser_idと、ログイン中ユーザーのidが同じレコードを抽出
   end
 end

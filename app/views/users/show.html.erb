@@ -5,7 +5,7 @@
   </div>
   <div class="acount-text">
     <p>
-      <%= @user.nickname %>
+      <%= current_user.nickname %>
     </p>
   </div>
   <div class="acount-texts">
@@ -13,10 +13,44 @@
   </div>
   <div class="acount-text">
     <p>
-      <%= @user.email %>
+      <%= current_user.email %>
     </p>
   </div>
   <div class="acount-text">
     <%= link_to "ユーザー編集", edit_user_registration_path %>
+  </div>
+  <div class="acount-text">
+    <%if @deplo.nil?%>
+    <h3>
+      まだ<%= current_user.nickname %>の投稿はありません。
+    </h3><br/>
+    <h4>
+      <%= link_to '~投稿してみよう~', new_deplo_path %>
+    </h4>
+  <%else%>
+  <h3>
+    <%= current_user.nickname %>のDEPLO一覧
+  </h3>
+  <% @deplo.each do |deplo|%>
+    <ul >
+      <%= link_to deplo_path(deplo.id), method: :get do %>
+      <li class='list'>
+      <% if deplo.images.present? %>
+        <div class="deplo__img__contents">
+          <%= image_tag deplo.images[0].variant(resize: '200x200'), class: "deplo__img" %><br/>
+        </div>
+      <% else %>
+        <div class="deplo__img__contents" %>
+          <%= image_tag("no_image.001.jpeg", class: :no__img) %>
+        </div>
+      <% end %>
+        <h3 class='title'>
+          <%= deplo.deplo_title %>
+        </h3>
+      </li>
+      <% end %>
+    </ul>
+  <% end %>
+  <%end%>
   </div>
 </div>
