@@ -20,7 +20,8 @@
     <%= link_to "ユーザー編集", edit_user_registration_path %>
   </div>
   <div class="acount-text">
-    <%if @deplo.nil?%>
+  <%#if @deplo.nil?%>
+  <%if @deplo.empty?%>
     <h3>
       まだ<%= current_user.nickname %>の投稿はありません。
     </h3><br/>
