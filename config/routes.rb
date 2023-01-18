@@ -7,6 +7,7 @@ Rails.application.routes.draw do
 
   root to: "deplos#index"
   get '/deplos/prefecture/:id', to: "deplos#prefecture"
+  get '/deplos/userdetail', to: "deplos#userdetail"
   resources :deplos do
     namespace :admin do
       resources :deplos, only: [:index, :new, :create, :show,  :edit, :destroy]

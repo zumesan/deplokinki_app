@@ -1,5 +1,5 @@
 class DeplosController < ApplicationController
-  before_action :set_deplo, except: [:index, :prefecture, :new, :create, :search]
+  before_action :set_deplo, except: [:index, :prefecture, :userdetail, :new, :create, :search]
   before_action :authenticate_user!, except: [:index, :prefecture, :show, :search]
   before_action :contributor_confirmation, only: [:edit, :update, :destroy]
   before_action :set_search
@@ -11,6 +11,10 @@ class DeplosController < ApplicationController
   def prefecture
     @deplo = Deplo.find_by(prefecture_id: params[:id])
     @deplos = Deplo.where(prefecture_id: params[:id]).order('created_at DESC')
+  end
+
+  def userdetail
+
   end
 
   def new
