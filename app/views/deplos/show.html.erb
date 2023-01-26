@@ -33,7 +33,7 @@
       </div>
 
       <div class="show-details">
-        投&emsp;稿&emsp;者：<%= link_to @deplo.user[:nickname], deplos_userdetail_path %>
+        投&emsp;稿&emsp;者：<%= link_to @deplo.user[:nickname], deplos_userdetail_path(@deplo.id) %>
       </div>
 
     </div><br/>

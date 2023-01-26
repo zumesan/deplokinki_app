@@ -1,5 +1,5 @@
 class DeplosController < ApplicationController
-  before_action :set_deplo, except: [:index, :prefecture, :userdetail, :new, :create, :search]
+  before_action :set_deplo, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!, except: [:index, :prefecture, :show, :search]
   before_action :contributor_confirmation, only: [:edit, :update, :destroy]
   before_action :set_search
@@ -14,7 +14,8 @@ class DeplosController < ApplicationController
   end
 
   def userdetail
-
+    @deplo = Deplo.find(params[:id])
+    @deplos = Deplo.where(user_id: @deplo.user_id).order('created_at DESC') #『user_id』が、@deplo.user_idの番号のレコードを全て取得。
   end
 
   def new
