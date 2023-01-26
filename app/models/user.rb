@@ -24,6 +24,6 @@ class User < ApplicationRecord
   validates :phone_number, numericality: {message: "は半角数字で入力してください"}, format:{ with: VALID_PHONE_REGEX, allow_blank:true }
 
   has_many :comments
-  has_many :deplos
+  has_many :deplos, foreign_key: :user_id
 
 end
