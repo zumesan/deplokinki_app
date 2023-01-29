@@ -3,30 +3,24 @@
   <%= @deplo.user[:nickname] %>の投稿一覧</h2><br/><br/>
   <%if @deplos.nil?%>
     <h3>
-      <%= @deplo.user[:nickname] %>はまだDEPLOを投稿していません。
+      まだ投稿がありません。
     </h3>
-    <h4>
-      <%=link_to 'ぜひ投稿してね！', new_deplo_path %>
-    </h4>
   <%else%>
-  <h3>
-    <%= @deplo.user[:nickname] %>のDEPLO一覧
-  </h3>
   <% @deplos.each do |deplo|%>
-    <ul class='deplo__lists'>
+    <ul>
       <%= link_to deplo_path(deplo.id), method: :get do %>
-      <li class='list'>
+      <li>
       <% if deplo.images.present? %>
-        <div class="deplo__img__contents">
+        <div>
           <%= image_tag deplo.images[0].variant(resize: '200x200'), class: "deplo__img" %><br/>
         </div>
       <% else %>
-        <div class="deplo__img__contents">
+        <div>
           <%= image_tag("no_image.001.jpeg", class: :no__img) %>
         </div>
       <% end %>
         <h3 class='title'>
-          <%= deplo.deplo_title %>
+          <%= deplo.deplo_title %><br/><br/>
         </h3>
       </li>
       <% end %>
