@@ -4,7 +4,7 @@ class Deplo < ApplicationRecord
   belongs_to :user
   belongs_to :category
   belongs_to :prefecture
-  has_many :comments
+  has_many :comments, dependent: :destroy
   has_many_attached :images
 
   validates :deplo_title, :deplo_info, :municipality, presence: true
