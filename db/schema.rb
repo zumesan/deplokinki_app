@@ -75,7 +75,7 @@ ActiveRecord::Schema.define(version: 2022_12_06_055748) do
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
-  add_foreign_key "comments", "deplos", on_delete: :cascade
-  add_foreign_key "comments", "users", on_delete: :cascade
-  add_foreign_key "deplos", "users", on_delete: :cascade
+  add_foreign_key "comments", "deplos"
+  add_foreign_key "comments", "users"
+  add_foreign_key "deplos", "users"
 end

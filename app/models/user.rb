@@ -23,7 +23,7 @@ class User < ApplicationRecord
   # 電話番号のバリデーション
   validates :phone_number, numericality: {message: "は半角数字で入力してください"}, format:{ with: VALID_PHONE_REGEX, allow_blank:true }
 
-  has_many :comments
+  has_many :comments, dependent: :destroy #Userが削除された時に、投稿したコメントも削除する
   has_many :deplos, foreign_key: :user_id
 
 end
