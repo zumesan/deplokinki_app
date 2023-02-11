@@ -30,7 +30,7 @@
     </h4>
   <%else%>
   <h3>
-    <%= current_user.nickname %>のDEPLO一覧
+    〜<%= current_user.nickname %>のDEPLO一覧〜
   </h3>
   <% @deplo.each do |deplo|%>
     <ul >
@@ -42,7 +42,7 @@
         </div>
       <% else %>
         <div class="deplo__img__contents" %>
-          <%= image_tag("no_image.001.jpeg", class: :no__img) %>
+          <%= image_tag("no_image.png", class: :no__img) %>
         </div>
       <% end %>
         <h3 class='title'>
