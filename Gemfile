@@ -60,6 +60,7 @@ gem 'pry-rails'
 gem 'ransack'
 gem 'rails-i18n'
 gem 'kaminari'
+gem 'rspec-rails', '~> 4.0.0'
 group :production do
   gem 'pg'
 end
