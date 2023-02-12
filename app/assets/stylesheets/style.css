@@ -153,8 +153,6 @@
   margin-bottom: 40px;
 }
 
-
-
 .form__btn:hover {
   box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.2), 0 1px 8px 0 rgba(0, 0, 0, 0.12);
   cursor: pointer;
@@ -234,6 +232,7 @@
   width: 37vh;
   padding: 1vw;
   background-color: white;
+  justify-content: center;
 }
 
 .deplo__img__content {
@@ -277,6 +276,12 @@
 
 
 /* 詳細表示機能 */
+
+.user-deplo-list{
+  display: flex;
+  justify-content: center;
+  padding-bottom: 20px;
+}
 
 .show-padding{
   padding: 1vh;

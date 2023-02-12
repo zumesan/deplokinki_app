@@ -7,9 +7,9 @@
     </h3>
   <%else%>
   <% @deplos.each do |deplo|%>
-    <ul>
+    <ul class="lists">
       <%= link_to deplo_path(deplo.id), method: :get do %>
-      <li>
+      <li class="list">
       <% if deplo.images.present? %>
         <div>
           <%= image_tag deplo.images[0].variant(resize: '200x200'), class: "deplo__img" %><br/>
