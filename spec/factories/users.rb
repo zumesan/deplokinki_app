@@ -11,7 +11,6 @@ FactoryBot.define do
     first_name            {person.first.kanji}
     last_name_kana        {person.last.katakana}
     first_name_kana       {person.first.katakana}
-    birth_date            {Faker::Date.between(from:'1930-01-01',to:'2022-01-01')}
-
+    phone_number          {'07023456789'}
   end
 end
