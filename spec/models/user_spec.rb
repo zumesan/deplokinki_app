@@ -57,11 +57,123 @@ RSpec.describe User, type: :model do
         @user.valid?
         expect(@user.errors.full_messages).to include("パスワードは半角英数字で入力してください")
       end
+      it 'passwordに全角文字が含まれていると登録できない' do
+        @user.password = 'aaa０００'
+        @user.password_confirmation = 'aaa０００'
+        @user.valid?
+        expect(@user.errors.full_messages).to include("パスワードは半角英数字で入力してください")
+      end
       it 'passwordが5文字以下では登録できない' do
         @user.password = 'aa111'
         @user.password_confirmation = 'aa111'
         @user.valid?
         expect(@user.errors.full_messages).to include("パスワードは6文字以上で入力してください")
+      end
+      it 'passwordとpassword_confirmationが不一致だと登録できない' do
+        @user.password = 'aaa111'
+        @user.password_confirmation = 'aaa1111'
+        @user.valid?
+        expect(@user.errors.full_messages).to include("パスワード（確認）とパスワードの入力が一致しません")
+      end
+      it 'last_nameが空のときは登録できない' do
+        @user.last_name = ''
+        @user.valid?
+        expect(@user.errors.full_messages).to include("苗字を入力してください", "苗字は全角で入力してください", "苗字は1文字以上で入力してください")
+      end
+      it 'last_nameに半角文字が含まれていると登録できない' do
+        @user.last_name = 'tanaka'
+        @user.valid?
+        expect(@user.errors.full_messages).to include("苗字は全角で入力してください")
+      end
+      it 'last_nameに半角数字が含まれていると登録できない' do
+        @user.last_name = '田中1'
+        @user.valid?
+        expect(@user.errors.full_messages).to include("苗字は全角で入力してください")
+      end
+      it 'last_nameに全角数字が含まれていると登録できない' do
+        @user.last_name = '田中１'
+        @user.valid?
+        expect(@user.errors.full_messages).to include("苗字は全角で入力してください")
+      end
+      it 'first_nameが空のときは登録できない' do
+        @user.first_name = ''
+        @user.valid?
+        expect(@user.errors.full_messages).to include("名前を入力してください", "名前は全角で入力してください", "名前は1文字以上で入力してください")
+      end
+      it 'first_nameに半角文字が含まれていると登録できない' do
+        @user.first_name = 'naoki'
+        @user.valid?
+        expect(@user.errors.full_messages).to include("名前は全角で入力してください")
+      end
+      it 'first_nameに半角数字が含まれていると登録できない' do
+        @user.first_name = '直樹1'
+        @user.valid?
+        expect(@user.errors.full_messages).to include("名前は全角で入力してください")
+      end
+      it 'first_nameに全角数字が含まれていると登録できない' do
+        @user.first_name = '直樹１'
+        @user.valid?
+        expect(@user.errors.full_messages).to include("名前は全角で入力してください")
+      end
+      it 'last_name_kanaが空のときは登録できない' do
+        @user.last_name_kana = ''
+        @user.valid?
+        expect(@user.errors.full_messages).to include("苗字（カナ）を入力してください", "苗字（カナ）は全角カタカナで入力してください", "苗字（カナ）は1文字以上で入力してください")
+      end
+      it 'last_name_kanaに半角文字が含まれていると登録できない' do
+        @user.last_name_kana = 'tanaka'
+        @user.valid?
+        expect(@user.errors.full_messages).to include("苗字（カナ）は全角カタカナで入力してください")
+      end
+      it 'last_name_kanaに半角数字が含まれていると登録できない' do
+        @user.last_name_kana = 'タナカ1'
+        @user.valid?
+        expect(@user.errors.full_messages).to include("苗字（カナ）は全角カタカナで入力してください")
+      end
+      it 'last_name_kanaに全角数字が含まれていると登録できない' do
+        @user.last_name_kana = 'タナカ１'
+        @user.valid?
+        expect(@user.errors.full_messages).to include("苗字（カナ）は全角カタカナで入力してください")
+      end
+      it 'first_name_kanaが空のときは登録できない' do
+        @user.first_name_kana = ''
+        @user.valid?
+        expect(@user.errors.full_messages).to include("名前（カナ）を入力してください", "名前（カナ）は全角カタカナで入力してください", "名前（カナ）は1文字以上で入力してください")
+      end
+      it 'first_name_kanaに半角文字が含まれていると登録できない' do
+        @user.first_name_kana = 'naoki'
+        @user.valid?
+        expect(@user.errors.full_messages).to include("名前（カナ）は全角カタカナで入力してください")
+      end
+      it 'first_name_kanaに半角数字が含まれていると登録できない' do
+        @user.first_name_kana = 'naoki1'
+        @user.valid?
+        expect(@user.errors.full_messages).to include("名前（カナ）は全角カタカナで入力してください")
+      end
+      it 'first_name_kanaに全角数字が含まれていると登録できない' do
+        @user.first_name_kana = 'naoki１'
+        @user.valid?
+        expect(@user.errors.full_messages).to include("名前（カナ）は全角カタカナで入力してください")
+      end
+      it 'phone_numberが空のときは登録できない' do
+        @user.phone_number = ''
+        @user.valid?
+        expect(@user.errors.full_messages).to include("電話番号は半角数字で入力してください")
+      end
+      it 'phone_numberに半角英字が含まれているときは登録できない' do
+        @user.phone_number = '0901234567a'
+        @user.valid?
+        expect(@user.errors.full_messages).to include("電話番号は半角数字で入力してください")
+      end
+      it 'phone_numberに全角文字が含まれている場合は登録できない' do
+        @user.phone_number = '0901234567あ'
+        @user.valid?
+        expect(@user.errors.full_messages).to include("電話番号は半角数字で入力してください")
+      end
+      it 'phone_numberが全角数字の場合は登録できない' do
+        @user.phone_number = '０９０１２３４５６７８'
+        @user.valid?
+        expect(@user.errors.full_messages).to include("電話番号は半角数字で入力してください")
       end
     end
   end
