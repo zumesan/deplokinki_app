@@ -56,7 +56,7 @@ RSpec.describe Deplo, type: :model do
         @deplo.valid?
         expect(@deplo.errors.full_messages).to include("都道府県を選択してください")
       end
-      it '画像が6枚以上では投稿できない' do
+      it 'imageが6枚以上では投稿できない' do
         @deplo.images = nil
         @deplo.images = [ fixture_file_upload('map.png','image/png'), fixture_file_upload('deplo_logo.png','image/png'), fixture_file_upload('no_image.001.png','image/png'), fixture_file_upload('sample1.png','image/png'), fixture_file_upload('test_image2.png','image/png'), fixture_file_upload('output-image2.png','image/png') ]
         @deplo.valid?
