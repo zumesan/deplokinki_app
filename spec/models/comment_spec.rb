@@ -19,7 +19,12 @@ RSpec.describe Comment, type: :model do
       it 'comment_contentが空では投稿できない' do
         @comment.comment_content = ''
         @comment.valid?
-        expect(@comment.errors.full_messages).to include("Comment contentを入力してください")
+        expect(@comment.errors.full_messages).to include("Comment contentは1文字以上で入力してください")
+      end
+      it 'comment_contentが140字を超えている場合は投稿できない' do
+        @comment.comment_content = '123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901'
+        @comment.valid?
+        expect(@comment.errors.full_messages).to include("Comment contentは140文字以内で入力してください")
       end
       it 'user_idが空のときは投稿できない' do
         @comment.user_id = nil
