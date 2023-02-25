@@ -15,8 +15,12 @@ RSpec.describe User, type: :model do
       it 'nicknameが空のときは登録できない' do
         @user.nickname = ''
         @user.valid?
-        @user.errors.full_messages
-        expect(@user.errors.full_messages).to include("ニックネームを入力してください")
+        expect(@user.errors.full_messages).to include("ニックネームを入力してください", "ニックネームは1文字以上で入力してください")
+      end
+      it 'nicknameが10文字を超えるときは登録できない' do
+        @user.nickname = '12345678901'
+        @user.valid?
+        expect(@user.errors.full_messages).to include("ニックネームは10文字以内で入力してください")
       end
       it 'emailが空のときは登録できない' do
         @user.email = ''
@@ -80,6 +84,11 @@ RSpec.describe User, type: :model do
         @user.valid?
         expect(@user.errors.full_messages).to include("苗字を入力してください", "苗字は全角で入力してください", "苗字は1文字以上で入力してください")
       end
+      it 'last_nameが30字以上のときは登録できない' do
+        @user.last_name = 'あいうえおかきくけこさしすせそたちつてとなにぬねのはひふへほま'
+        @user.valid?
+        expect(@user.errors.full_messages).to include("苗字は30文字以内で入力してください")
+      end
       it 'last_nameに半角文字が含まれていると登録できない' do
         @user.last_name = 'tanaka'
         @user.valid?
@@ -99,6 +108,11 @@ RSpec.describe User, type: :model do
         @user.first_name = ''
         @user.valid?
         expect(@user.errors.full_messages).to include("名前を入力してください", "名前は全角で入力してください", "名前は1文字以上で入力してください")
+      end
+      it 'first_nameが30字以上のときは登録できない' do
+        @user.first_name = 'あいうえおかきくけこさしすせそたちつてとなにぬねのはひふへほま'
+        @user.valid?
+        expect(@user.errors.full_messages).to include("名前は30文字以内で入力してください")
       end
       it 'first_nameに半角文字が含まれていると登録できない' do
         @user.first_name = 'naoki'
@@ -120,6 +134,16 @@ RSpec.describe User, type: :model do
         @user.valid?
         expect(@user.errors.full_messages).to include("苗字（カナ）を入力してください", "苗字（カナ）は全角カタカナで入力してください", "苗字（カナ）は1文字以上で入力してください")
       end
+      it 'last_name_kanaが30字を超えるときは登録できない' do
+        @user.last_name_kana = 'アイウエオカキクケコサシスセソタチツテトナニヌネノハヒフヘホマ'
+        @user.valid?
+        expect(@user.errors.full_messages).to include("苗字（カナ）は30文字以内で入力してください")
+      end
+      it 'last_name_kanaにひらがなが含まれていると登録できない' do
+        @user.last_name_kana = 'あいうえお'
+        @user.valid?
+        expect(@user.errors.full_messages).to include("苗字（カナ）は全角カタカナで入力してください")
+      end
       it 'last_name_kanaに半角文字が含まれていると登録できない' do
         @user.last_name_kana = 'tanaka'
         @user.valid?
@@ -139,6 +163,16 @@ RSpec.describe User, type: :model do
         @user.first_name_kana = ''
         @user.valid?
         expect(@user.errors.full_messages).to include("名前（カナ）を入力してください", "名前（カナ）は全角カタカナで入力してください", "名前（カナ）は1文字以上で入力してください")
+      end
+      it 'first_name_kanaが30字を超えるときは登録できない' do
+        @user.first_name_kana = 'アイウエオカキクケコサシスセソタチツテトナニヌネノハヒフヘホマ'
+        @user.valid?
+        expect(@user.errors.full_messages).to include("名前（カナ）は30文字以内で入力してください")
+      end
+      it 'first_name_kanaにひらがなが含まれていると登録できない' do
+        @user.first_name_kana = 'あいうえお'
+        @user.valid?
+        expect(@user.errors.full_messages).to include("名前（カナ）は全角カタカナで入力してください")
       end
       it 'first_name_kanaに半角文字が含まれていると登録できない' do
         @user.first_name_kana = 'naoki'
