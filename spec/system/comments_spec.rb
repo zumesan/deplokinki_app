@@ -60,6 +60,23 @@ RSpec.describe "Comments", type: :system do
       deplo_toukou
       comment_post
     end
+
+    it '自分で投稿したコメントは削除できる' do
+      deplo_toukou
+      comment_post
+      click_on 'コメント削除'
+      expect(page).to_not have_content('テストコメント')
+    end
+
+    it '自分以外のアカウントが投稿したコメントは削除できない' do
+      deplo_toukou
+      comment_post
+      click_on 'ログアウト'
+      sign_in(@users)
+      click_on '三重県'
+      click_on 'テスト'
+      expect(page).to_not have_content('コメント削除')
+    end
   end
 
   context 'コメントができないとき' do
