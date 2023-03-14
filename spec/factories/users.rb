@@ -12,5 +12,6 @@ FactoryBot.define do
     last_name_kana        {person.last.katakana}
     first_name_kana       {person.first.katakana}
     phone_number          {'07023456789'}
+    admin                 {'0'}
   end
 end

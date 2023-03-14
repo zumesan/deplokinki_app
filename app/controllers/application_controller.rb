@@ -1,5 +1,5 @@
 class ApplicationController < ActionController::Base
-  before_action :basic_auth
+  before_action :basic_auth if Rails.env.production? # テスト時はbasic認証を行わないよう分岐
   before_action :configure_permitted_parameters, if: :devise_controller? #deviseに関するコントローラーの処理の場合にメソッドを実行する
   before_action :set_search
   
@@ -22,7 +22,5 @@ class ApplicationController < ActionController::Base
     @q = Deplo.ransack(params[:q]) #検索オブジェクトを生成、paramsでransackを使用したフォームから送られてくるパラメーターを受け取る。
     @searches = @q.result #resultで検索結果を取得する
   end
-
-  
 
 end
