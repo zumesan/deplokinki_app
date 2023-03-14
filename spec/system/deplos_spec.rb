@@ -4,6 +4,7 @@ RSpec.describe "Deplos", type: :system do
   before do
     @user = FactoryBot.create(:user)
     @users = FactoryBot.create(:user)
+    @admin = FactoryBot.create(:user, admin: true)
   end
 
   def deplo_toukou
@@ -226,6 +227,20 @@ RSpec.describe "Deplos", type: :system do
       select 'グルメ', from: 'q_category_id_eq'
       click_on '検索'
       expect(page).to have_content('テスト')
+    end
+  end
+
+  context '管理者の場合' do
+    it '管理者の場合、他のアカウントの投稿を削除できる' do
+      deplo_toukou
+      click_on 'ログアウト'
+      sign_in(@admin)
+      click_on '三重県'
+      click_on 'テスト'
+
+      click_on '削除する'
+
+      expect(current_path).to eq(root_path)
     end
   end
 end

@@ -4,6 +4,7 @@ RSpec.describe "Comments", type: :system do
   before do
     @user = FactoryBot.create(:user)
     @users = FactoryBot.create(:user)
+    @admin = FactoryBot.create(:user, admin: true)
   end
 
   def deplo_toukou
@@ -70,4 +71,17 @@ RSpec.describe "Comments", type: :system do
       expect(page).to_not have_content('comment_comment_content')
     end
   end
-end
+
+  context '管理者のとき' do
+    it '管理者は他のアカウントのコメントを削除できる' do
+      deplo_toukou
+      comment_post
+      click_on 'ログアウト'
+      sign_in(@admin)
+      click_on '三重県'
+      click_on 'テスト'
+      click_on 'コメント削除'
+      expect(page).to_not have_content('テストコメント')
+    end
+  end
+end 
