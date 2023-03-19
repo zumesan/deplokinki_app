@@ -12,7 +12,7 @@
       <div class="other__images">
         <% @deplo.images[1..-1].each do |image| %> <%# テーブルに保存されているimagesを順番に表示 %>
           <div class="other__image" >
-            <%= image_tag image %>
+            <%= image_tag image, class: :deplo__box__img %>
           </div>
         <% end %>
       </div>
