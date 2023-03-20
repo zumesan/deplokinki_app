@@ -15,30 +15,32 @@
 
 ### Association
 
-- has_many :t_deplos
-- has_many :t_deplo_records
+- has_many :deplos
+- has_many :comments
 
 ## deplos テーブル
 
-| Column                   | Type       | Options                        |
-| ------------------------ | ---------- | ------------------------------ |
-| deplo_title    　　　     | string     | null: false                    |
-| deplo_info          　　　| text       | null: false                    |
-| municipality             | string     | null: false                    |
-| category_id              | integer    | null: false                    |
-| prefecture_id            | integer    | null: false                    |
-| user                     | references | null: false, foreign_key: true |
+| Column             | Type       | Options                        |
+| ------------------ | ---------- | ------------------------------ |
+| deplo_title        | string     | null: false                    |
+| deplo_info         | text       | null: false                    |
+| municipality       | string     | null: false                    |
+| category_id        | integer    | null: false                    |
+| prefecture_id      | integer    | null: false                    |
+| user               | references | null: false, foreign_key: true |
 
 ### Association
+- belongs_to :user
+- has_many :comments
 
-- has_one    :deplo_record
 
-## deplo_records テーブル
+## comments テーブル
 
 | Column             | Type       | Options                        |
 | ------------------ | ---------- | ------------------------------ |
 | user               | references | null: false, foreign_key: true |
 | deplo              | references | null: false, foreign_key: true |
+| comment_content    | text       |                                |
 
 ### Association
 
