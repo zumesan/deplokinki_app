@@ -1,1 +1,3 @@
+User.create!(nickname: "クル", email: "kuru@icloud.com", first_name: "クル", last_name: "猫屋敷", first_name_kana: "クル", last_name_kana: "ネコヤシキ", phone_number: "09012345678", password: "kurukuru1", password_confirmation: "kurukuru1", admin: false)
+User.create!(nickname: "ライ", email: "rai@icloud.com", first_name: "ライ", last_name: "猫屋敷", first_name_kana: "ライ", last_name_kana: "ネコヤシキ", phone_number: "08012345678", password: "rairai2", password_confirmation: "rairai2", admin: false)
 User.create!(nickname: "管理者", email: "admin@example.jp", first_name: "管理", last_name: "者", first_name_kana: "カンリ", last_name_kana: "シャ", phone_number: "09000000000", password: "admin9876", password_confirmation: "admin9876", admin: true)
