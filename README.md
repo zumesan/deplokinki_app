@@ -41,11 +41,42 @@ google検索で飲食店などを探す際、意外と検索に引っかから�
 
 # 洗い出した要件定義
 
-
+https://docs.google.com/document/d/1V0Hgwm4k9snHcfbJp0yx-pHbXTI0bOQWzIkMgsY33Nw/edit
 
 # 実装予定の機能
 
 - いいね機能の実装
+
+# データベース設計
+
+![deplokinki](https://user-images.githubusercontent.com/102449081/231318203-5815d279-eb14-4648-b0dc-25cc209033c9.png)
+
+# 画面遷移図
+
+![seni](https://user-images.githubusercontent.com/102449081/231318282-7d767b84-46ca-41ab-845d-cb22cc19d7cb.png)
+
+# 開発環境
+
+- フロントエンド
+- バックエンド
+- インフラ
+- テスト
+- テキストエディタ
+- タスク管理
+
+# ローカルでの動作方法
+
+以下のコマンドを順に実行。  
+% git clone https://github.com/zumesan/deplokinki_app.git  
+% cd deplokinki_app  
+% bundle install  
+% yarn install
+
+# 工夫したポイント
+
+特定の都道府県を探しやすくするため、トップページには近畿地図のimageを用いた画面を採用しました。ransackを用いた検索機能を追加し、閲覧したい投稿へのアクセス性向上も計りました。また、管理者機能を導入し、不適切な投稿や、コメントの削除を行えるようにしました。
+
+
 
 # テーブル設計
 
@@ -96,16 +127,3 @@ google検索で飲食店などを探す際、意外と検索に引っかから�
 - belongs_to :user
 - belongs_to :deplo
 
-# 開発環境
-
-- フロントエンド
-- バックエンド
-- インフラ
-- テスト
-- テキストエディタ
-- タスク管理
-
-# ローカルでの動作方法
-
-以下のコマンドを順に実行。  
-% git clone 
